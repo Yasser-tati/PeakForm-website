@@ -1,0 +1,246 @@
+/* Main container styling */
+.main-container {
+  background: #f9f8ff;
+  padding: 40px 0;
+}
+
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  color: #333;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.line {
+  height: 3px;
+  width: 50px;
+  background: #b19cd9;
+  margin: 0 15px;
+}
+
+.avis-container {
+  background: #f9f8ff;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ========== Featured Review (Top Card) ========== */
+.featured-review {
+  background: #fff;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  max-width: 85%;
+  margin: 0 auto 40px;
+  position: relative;
+  border: 1px solid rgba(177, 156, 217, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-review:hover {
+  transform: scale(1.02) translateY(-8px);
+  box-shadow: 0 20px 40px rgba(156, 39, 176, 0.3);
+  border-color: rgba(239, 155, 252, 0.4);
+}
+
+.quote-icon {
+  position: absolute;
+  top: -15px;
+  left: 30px;
+  font-size: 60px;
+  color: #b19cd9;
+  opacity: 0.6;
+  font-family: Georgia, serif;
+}
+
+/* Large text for featured testimonial */
+.featured-review p {
+  font-size: 18px;
+  line-height: 1.7;
+  font-weight: 500;
+  color: #333;
+  margin: 10px 0 20px;
+}
+
+/* Featured user info */
+.featured-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Avatar in the featured card */
+.featured-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #b19cd9;
+}
+
+.featured-name {
+  font-weight: 700;
+  color: #333;
+  font-size: 16px;
+}
+
+.featured-handle {
+  color: #888;
+  font-size: 14px;
+}
+
+/* ========== Reviews Below (2 or 3 in a row) ========== */
+.reviews-row {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+/* Individual review card */
+.review-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  flex: 1;
+  min-width: 280px;
+  max-width: 380px;
+  text-align: left;
+  border: 1px solid rgba(177, 156, 217, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+  transform: scale(1.02) translateY(-8px);
+  box-shadow: 0 20px 40px rgba(156, 39, 176, 0.3);
+  border-color: rgba(239, 155, 252, 0.4);
+}
+
+/* Review text inside each card */
+.review-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+/* User info inside each card */
+.review-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 15px;
+  border-top: 1px solid rgba(177, 156, 217, 0.2);
+  padding-top: 15px;
+}
+
+/* Avatar for each secondary user */
+.user-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #b19cd9;
+}
+
+/* Name & handle for each secondary user */
+.review-name {
+  font-weight: 600;
+  color: #333;
+  display: block;
+  font-size: 15px;
+}
+
+.review-handle {
+  color: #888;
+  display: block;
+  font-size: 13px;
+}
+
+/* ========== "Voir plus d'avis" Button ========== */
+.show-more-btn {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.show-more-btn button {
+  background: #b19cd9;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(177, 156, 217, 0.3);
+}
+
+.show-more-btn button:hover {
+  background: #9d84c9;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(177, 156, 217, 0.4);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .featured-review {
+    max-width: 90%;
+    padding: 24px;
+  }
+
+  .reviews-row {
+    gap: 20px;
+  }
+  
+  .review-card {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-avatar {
+    width: 35px; /* Smaller avatar size */
+    height: 35px;
+  }
+
+  .featured-name {
+    font-size: 14px; /* Smaller name text */
+  }
+
+  .featured-handle {
+    font-size: 12px; /* Smaller handle text */
+  }
+
+  .review-name {
+    font-size: 14px; /* Smaller name text in reviews */
+  }
+
+  .review-handle {
+    font-size: 12px; /* Smaller handle text in reviews */
+  }
+
+  .show-more-btn button {
+    padding: 12px 20px; /* Adjust button size */
+  }
+}

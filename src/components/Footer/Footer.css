@@ -1,0 +1,424 @@
+    /* Import Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+    /* --- Footer Container --- */
+    .footer {
+        background: linear-gradient(135deg, #29183b, #372858);
+        color: #f0f0f0;
+        font-family: 'Poppins', sans-serif;
+        padding: 20px 0 0;
+        border-top: 2px solid #5a2b80;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* --- Left Block --- */
+    .footer-left {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        margin-bottom: 30px;
+    }
+
+    .brand-name {
+        font-size: 28px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 5px;
+    }
+
+    .highlight {
+        color: #a97aff;
+    }
+
+    .tagline {
+        color: #bbb;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    /* Download Button */
+    .download-button {
+        background: #5a2b80;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 12px 20px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 30px;
+        margin-left: 80px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .download-button:hover {
+        background: #7a3dad;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .download-icon {
+        font-size: 16px;
+    }
+
+    /* Payment Methods */
+    .payment-methods {
+        margin-top: 20px;
+    }
+
+    .payment-title {
+        font-size: 14px;
+        font-weight: 500;
+        color: #bbb;
+        margin-bottom: 15px;
+    }
+
+    .payment-logos {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .payment-logo {
+        width: 50px;
+        height: auto;
+        transition: transform 0.3s ease;
+        filter: brightness(0.9);
+    }
+
+    .payment-logo:hover {
+        transform: scale(1.1);
+        filter: brightness(1);
+    }
+
+    /* --- Center Block --- */
+    .footer-center {
+        display: flex;
+        justify-content: space-between;
+        width: 40%;
+        gap: 30px;
+    }
+
+    .footer-section {
+        flex: 1;
+        margin-bottom: 30px;
+    }
+
+    .footer-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+
+    .footer-links a {
+        color: #bbb;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        display: inline-block;
+    }
+
+    .footer-links a:hover {
+        color: #a97aff;
+        transform: translateX(3px);
+    }
+
+    /* --- Right Block --- */
+    .footer-right {
+        display: flex;
+        flex-direction: column;
+        width: 25%;
+    }
+
+    .legal-section {
+        margin-bottom: 30px;
+    }
+
+    /* Social Icons */
+    .social-connect {
+        margin-top: 10px;
+    }
+
+    .social-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+    }
+    
+
+
+    .social-icons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #ddd;
+        transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        background-color: #a97aff;
+        color: #fff;
+        transform: translateY(-3px);
+    }
+
+    .social-icons svg {
+        font-size: 18px;
+    }
+
+    /* --- Bottom Section --- */
+    .footer-bottom {
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 20px;
+    }
+
+    .footer-line {
+        height: 1px;
+        background-color: rgba(169, 122, 255, 0.3);
+        border: none;
+        margin-bottom: 20px;
+    }
+
+    .copyright {
+        font-size: 13px;
+        color: #999;
+        padding-bottom: 10px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+        .footer-content {
+            flex-direction: column;
+        }
+        
+        .footer-left, .footer-center, .footer-right {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        
+        .footer-center {
+            order: 3;
+        }
+        
+        .footer-right {
+            order: 2;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .footer-center {
+            flex-direction: column;
+            gap: 0;
+        }
+        
+        .footer-section {
+            margin-bottom: 30px;
+        }
+    }
+
+    /* Popup Styles */
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        backdrop-filter: blur(3px);
+    }
+
+    .popup-content {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        width: 60%;
+        max-width: 600px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #555;
+        transition: color 0.3s;
+    }
+
+    .close-btn:hover {
+        color: #a97aff;
+    }
+
+    /* Popup Layout */
+    .popup-body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .popup-right h3 {
+        color: #a97aff;
+        margin-bottom: 15px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .popup-right p {
+        margin-bottom: 15px;
+        color: #555;
+        font-weight: 500;
+    }
+
+    /* iPhone Frame Container */
+    .iphone-container {
+        position: relative;
+        width: 200px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 12%;
+    }
+
+    /* iPhone Frame */
+    .iphone-frame {
+        width: 160%;
+        position: absolute;
+        z-index: 2;
+    }
+
+    /* App Screenshot Positioned Inside Frame */
+    .iphone-screen {
+        width: 70%;
+        height: 100%;
+        position: absolute;
+        top: 0%;
+        left: 1%;
+        z-index: 1;
+        margin-left: 1%;
+    }
+
+    /* QR Code */
+    .qr-image {
+        display: block;
+        margin-top: 20px;
+        width: 160px;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 5px;
+        background: white;
+    }
+
+    .separator {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin: 20px 0;
+        justify-content: center;
+    }
+
+    .line1 {
+        width: 50px;
+        height: 2px;
+        background-color: #a97aff;
+        border-radius: 2px;
+    }
+
+    .lien {
+        display: inline-block;
+        text-align: center;
+        margin-top: 15px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        text-decoration: none;
+        transition: color 0.3s;
+        padding: 8px 15px;
+        border: 1px solid #a97aff;
+        border-radius: 5px;
+    }
+
+    .lien:hover {
+        color: #a97aff;
+        background-color: rgba(169, 122, 255, 0.05);
+    }
+
+    /* Responsive styles for popup */
+    @media (max-width: 768px) {
+        .popup-content {
+            width: 90%;
+            padding: 20px;
+        }
+
+        .popup-body {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .popup-right {
+            padding-left: 0;
+            margin-top: 25px;
+            width: 100%;
+        }
+
+        .qr-image {
+            margin: 15px auto;
+        }
+        
+        .separator {
+            margin-left: 0;
+            justify-content: center;
+        }
+    }
+

@@ -1,0 +1,347 @@
+.about-us {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    margin-top: 10%;
+}
+
+.about-content {
+    margin-top: -3%;
+    max-width: 40%;
+    text-align: left;
+    margin-left: 10%;
+}
+
+.small-title {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 2px;
+    line-height: 1.2;
+}
+
+.main-title {
+    font-size: 48px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    display: flex;
+    align-items: center;
+}
+
+.fitness {
+    color: white;
+    margin-right: 20px;
+}
+
+.online {
+    color: #b300ff;
+    margin-left: -4%;
+}
+
+.subtitle {
+    font-size: 25px;
+    color: white;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.button-container {
+    margin-top: 15px;
+}
+
+.download-btn1 {
+    background: linear-gradient(135deg, #b300ff, #9c27b0);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 23px;
+    text-transform: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 5%;
+}
+
+.download-btn1:hover {
+    background: linear-gradient(135deg, #9c27b0, #b300ff);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.about-image-container {
+    position: relative;
+    width: 300px;
+    height: 550px;
+    margin-right: 10%;
+
+}
+
+.phone-frame {
+    display: block;
+    width: 180%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -50%;
+    margin-top: -10%;
+    z-index: 2; /* Higher index to keep it on top */
+}
+
+.phone-screen {
+    position: absolute;
+    top: 5%;
+    right: 36%;
+    width: 77%;
+    height: 93%;
+    margin-top: -12%;
+    z-index: 1; /* Lower index to place it under phone-frame */
+}
+
+
+/* Background Video */
+.bgvideo {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0.9;
+    z-index: -1;
+}
+
+#backgroundvideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Popup Styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+}
+
+.popup-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 60%;
+  max-width: 600px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #b300ff;
+}
+
+/* Popup Layout */
+.popup-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popup-right h3 {
+  color: #b300ff;
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.popup-right p {
+  margin-bottom: 15px;
+  color: #555;
+  font-weight: 500;
+}
+
+/* iPhone Frame Container */
+.iphone-container {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 12%;
+}
+
+/* iPhone Frame */
+.iphone-frame {
+  width: 160%;
+  position: absolute;
+  z-index: 2;
+}
+
+/* App Screenshot Positioned Inside Frame */
+.iphone-screen {
+  width: 70%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 1%;
+  z-index: 1;
+  margin-left: 1%;
+}
+
+/* QR Code */
+.qr-image {
+  display: block;
+  margin-top: 20px;
+  width: 160px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 5px;
+  background: white;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+  justify-content: center;
+}
+
+.line1 {
+  width: 50px;
+  height: 2px;
+  background-color: #b300ff;
+  border-radius: 2px;
+}
+
+.lien {
+  display: inline-block;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s;
+  padding: 8px 15px;
+  border: 1px solid #b300ff;
+  border-radius: 5px;
+}
+
+.lien:hover {
+  color: #b300ff;
+  background-color: rgba(179, 0, 255, 0.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-us {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 5%;
+    }
+
+    .about-content {
+        max-width: 100%;
+        order: 1; /* Text comes first */
+    }
+
+    .small-title {
+        font-size: 20px;
+    }
+
+    .main-title {
+        font-size: 32px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .button-container {
+        order: 2; /* Button comes second */
+        margin-top: 15px;
+        margin-bottom: 30px;
+    }
+
+    .download-btn1 {
+        font-size: 12px;
+        padding: 8px 14px;
+    }
+    .download-btn1:hover {
+        background: linear-gradient(135deg, #9c27b0, #b300ff);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-image-container {
+        width: 200px;
+        height: 300px;
+        order: 3; /* Image is last */
+        margin-top: 20px;
+    }
+
+    .iphone-frame {
+        width: 100%;
+        left: 0;
+    }
+
+    .iphone-screen {
+        width: 90%;
+        left: 5%;
+    }
+    
+    .popup-content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .popup-body {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .popup-right {
+        padding-left: 0;
+        margin-top: 25px;
+        width: 100%;
+    }
+
+    .qr-image {
+        margin: 15px auto;
+    }
+    
+    .separator {
+        margin-left: 0;
+        justify-content: center;
+    }
+}

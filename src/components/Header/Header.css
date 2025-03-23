@@ -1,0 +1,371 @@
+/* General Header Styles */
+.header-area {
+  background: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  padding: 15px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header-area.shrink {
+  padding: 5px 20px;
+  background: rgba(0, 0, 0, 0.95);
+}
+
+.header-area .main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header-area .logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.header-area .logo-img {
+  max-width: 50px;
+  height: auto;
+  transition: all 0.3s;
+  filter: drop-shadow(0 0 3px rgba(179, 0, 255, 0.3));
+}
+
+.header-area .logo-img.shrink-logo {
+  max-width: 40px;
+}
+
+.header-area .logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  flex-grow: 1;
+  transition: all 0.3s;
+  text-decoration: none;
+  letter-spacing: 1px;
+  padding-left: 10px;
+}
+
+.header-area .logo em {
+  color: #b300ff;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.header-area .nav {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: right;
+  align-items: center;
+  flex-grow: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.header-area .nav li {
+  display: inline-block;
+  position: relative;
+}
+
+.header-area .nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: none;
+  transition: all 0.3s;
+  padding: 4px 0;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.header-area .nav a:hover,
+.header-area .nav a.active {
+  color: #b300ff;
+}
+
+.header-area .nav .button-download:hover{
+  color: black;
+}
+
+.header-area .nav .button-download.active {
+  color: black;
+}
+
+
+.header-area .nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #b300ff;
+  transition: width 0.3s;
+}
+
+.header-area .nav a:hover::after {
+  width: 100%;
+}
+
+.header-area .main-button a {
+  background: linear-gradient(135deg, #b300ff, #9c27b0);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.3s;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-area .main-button a:hover {
+  background: linear-gradient(135deg, #9c27b0, #b300ff);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Menu */
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.menu-icon:hover {
+  color: #b300ff;
+}
+
+/* Popup Styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+}
+
+.popup-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 60%;
+  max-width: 600px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #b300ff;
+}
+
+/* Popup Layout */
+.popup-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popup-right h3 {
+  color: #b300ff;
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.popup-right p {
+  margin-bottom: 15px;
+  color: #555;
+  font-weight: 500;
+}
+
+/* iPhone Frame Container */
+.iphone-container {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 12%;
+}
+
+/* iPhone Frame */
+.iphone-frame {
+  width: 160%;
+  position: absolute;
+  z-index: 2;
+}
+
+/* App Screenshot Positioned Inside Frame */
+.iphone-screen {
+  width: 70%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 1%;
+  z-index: 1;
+  margin-left: 1%;
+}
+
+/* QR Code */
+.qr-image {
+  display: block;
+  margin-top: 20px;
+  width: 160px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 5px;
+  background: white;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+  justify-content: center;
+}
+
+.line1 {
+  width: 50px;
+  height: 2px;
+  background-color: #b300ff;
+  border-radius: 2px;
+}
+
+.lien {
+  display: inline-block;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s;
+  padding: 8px 15px;
+  border: 1px solid #b300ff;
+  border-radius: 5px;
+}
+
+.lien:hover {
+  color: #b300ff;
+  background-color: rgba(179, 0, 255, 0.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .header-area .nav {
+    gap: 15px;
+  }
+  
+  .header-area .nav a {
+    font-size: 12px;
+  }
+  
+  .header-area .main-button a {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-area .main-nav {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .header-area .logo {
+    text-align: left;
+    font-size: 20px;
+  }
+
+  .header-area .nav {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 20px 0;
+    display: none;
+    gap: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .header-area .nav.active {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-area .nav li {
+    margin: 8px 0;
+  }
+
+  .header-area .menu-icon {
+    display: block;
+    margin-right: 10px;
+  }
+
+  .popup-content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .popup-body {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .popup-right {
+    padding-left: 0;
+    margin-top: 25px;
+    width: 100%;
+  }
+
+  .qr-image {
+    margin: 15px auto;
+  }
+  
+  .separator {
+    margin-left: 0;
+    justify-content: center;
+  }
+}
+
+
+

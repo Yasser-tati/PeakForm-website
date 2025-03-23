@@ -1,0 +1,831 @@
+/* Main container */
+.inscription-page {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.inscription-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(106, 90, 205, 0.85), rgba(72, 61, 139, 0.9));
+    z-index: 1;
+}
+  
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+}
+  
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 10px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+}
+  
+.inscription-container {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    background: #ffffff;
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    z-index: 2;
+}
+  
+/* Info Graphic Section */
+.info-graphic {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom right, #5d4ec7, #483d8b);
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.info-graphic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 1;
+}
+
+.fitness-graphic {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.graphic-text {
+    text-align: left;
+    padding: 20px;
+}
+
+.graphic-text h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.graphic-text h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+}
+
+.graphic-text ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.graphic-text li {
+    margin-bottom: 20px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    position: relative;
+}
+
+.graphic-text li span {
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.graphic-text li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+}
+  
+/* Form Section */
+.inscription-form {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+
+.inscription-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #6a5acd;
+    font-size: 1.8rem;
+    font-weight: 600;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.inscription-form h2 span {
+    font-size: 1.5rem;
+}
+
+.inscription-form h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #6a5acd, #483d8b);
+    border-radius: 2px;
+}
+
+/* User Type Toggle */
+.user-type-toggle {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 25px;
+    background: rgba(240, 240, 250, 0.5);
+    border-radius: 30px;
+    padding: 4px;
+    width: 250px;
+    position: relative;
+    z-index: 2;
+    border: 1px solid rgba(106, 90, 205, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.toggle-option {
+    flex: 1;
+    padding: 10px 16px;
+    border-radius: 30px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+    color: #666;
+    position: relative;
+    overflow: hidden;
+}
+
+.toggle-option.active {
+    background: linear-gradient(135deg, #6a5acd, #5d4ec7);
+    color: white;
+    box-shadow: 0 4px 8px rgba(106, 90, 205, 0.2);
+}
+
+.toggle-option:focus {
+    outline: none;
+}
+
+.toggle-option:hover:not(.active) {
+    background: rgba(240, 240, 250, 0.9);
+    color: #555;
+}
+
+.toggle-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.toggle-option:hover::before {
+    opacity: 1;
+}
+
+/* Form Progress */
+.form-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.progress-step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.progress-step.active {
+    background-color: #6a5acd;
+    color: white;
+    box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.2);
+}
+
+.progress-line {
+    height: 3px;
+    width: 80px;
+    background-color: #e0e0e0;
+    margin: 0 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.progress-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: #6a5acd;
+    transition: width 0.3s ease;
+}
+
+.progress-step:nth-child(3).active ~ .progress-line::before {
+    width: 100%;
+}
+
+.section-subtitle {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 1.1rem;
+    font-weight: 500;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+/* Form Fields */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    z-index: 2;
+    height: 100%;
+}
+
+.form-section {
+    width: 100%;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.field-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.field-icon {
+    position: absolute;
+    left: 12px;
+    z-index: 1;
+    color: #6a5acd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input, select {
+    padding: 12px 12px 12px 40px;
+    border: 1.5px solid rgba(204, 204, 204, 0.5);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #333;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+}
+
+/* Date input specific styles */
+input[type="date"] {
+    padding-right: 10px;
+    position: relative;
+    background-image: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color: transparent;
+    color: #6a5acd;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+
+select {
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%236a5acd' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+    cursor: pointer;
+}
+
+select option {
+    padding: 10px;
+    background-color: white;
+    color: #333;
+}
+
+select option:hover,
+select option:focus,
+select option:active {
+    background-color: #f5f5ff;
+}
+  
+input:focus, select:focus {
+    border-color: #6a5acd;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.15);
+    transform: translateY(-2px);
+    background-color: #ffffff;
+}
+
+input.error-input, select.error-input {
+    border-color: #ff4d4f;
+    background-color: rgba(255, 77, 79, 0.03);
+}
+
+input.error-input:focus, select.error-input:focus {
+    box-shadow: 0 0 0 3px rgba(255, 77, 79, 0.1);
+}
+
+input::placeholder, select::placeholder {
+    color: #999;
+    font-weight: 400;
+}
+
+.error-message {
+    color: #ff4d4f;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 2px;
+    font-weight: 500;
+}
+  
+.password-field {
+    position: relative;
+    width: 100%;
+}
+  
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 16px;
+    color: #6a5acd;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+    background: none;
+    border: none;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.password-toggle:hover {
+    opacity: 1;
+}
+
+/* Checkbox styling */
+.terms-checkbox {
+    margin-top: 5px;
+}
+
+.checkbox-container {
+    display: flex;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    user-select: none;
+    align-items: center;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 4px;
+    border: 1px solid rgba(204, 204, 204, 0.8);
+    transition: all 0.2s ease;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #f0f0f0;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #6a5acd;
+    border-color: #6a5acd;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-label {
+    margin-left: 10px;
+    color: #555;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.next-button, .back-button, .submit-button {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.next-button {
+    background: linear-gradient(135deg, #6a5acd, #5d4ec7);
+    color: white;
+    margin-left: auto;
+    box-shadow: 0 5px 15px rgba(106, 90, 205, 0.3);
+}
+
+.next-button:hover {
+    background: linear-gradient(135deg, #5d4ec7, #483d8b);
+    box-shadow: 0 8px 20px rgba(106, 90, 205, 0.4);
+    transform: translateY(-2px);
+}
+
+.back-button {
+    background: #f0f0f0;
+    color: #555;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.back-button:hover {
+    background: #e8e8e8;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.submit-button {
+    flex: 1;
+    padding: 16px;
+    background: linear-gradient(135deg, #6a5acd, #483d8b);
+    color: white;
+    box-shadow: 0 8px 15px rgba(106, 90, 205, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+  
+.submit-button:hover {
+    background: linear-gradient(135deg, #5d4ec7, #403687);
+    box-shadow: 0 10px 20px rgba(106, 90, 205, 0.4);
+    transform: translateY(-2px);
+}
+
+.next-button:active, .back-button:active, .submit-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 8px rgba(106, 90, 205, 0.3);
+}
+
+.submit-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    transform: rotate(30deg);
+    pointer-events: none;
+}
+
+.submit-button:hover::after {
+    opacity: 1;
+}
+
+.line1 {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.3), #ffffff, rgba(255, 255, 255, 0.3));
+    border-radius: 3px;
+}
+
+/* Fitness-themed elements */
+.fitness-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #6a5acd;
+    opacity: 0.8;
+}
+
+/* Success message styling */
+.success-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 255, 0.95));
+    border-radius: 8px;
+}
+
+.success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #6a5acd, #483d8b);
+    color: white;
+    border-radius: 50%;
+    font-size: 35px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 20px rgba(106, 90, 205, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.success-icon::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.success-message h3 {
+    color: #6a5acd;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.success-message p {
+    color: #666;
+    font-size: 16px;
+    max-width: 80%;
+}
+
+@media screen and (max-width: 900px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .inscription-container {
+        width: 95%;
+    }
+    
+    .inscription-form {
+        padding: 30px;
+    }
+
+    .user-type-toggle {
+        width: 220px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .inscription-container {
+        flex-direction: column;
+        max-width: 500px;
+    }
+  
+    .info-graphic {
+        display: none;
+    }
+  
+    .inscription-form {
+        padding: 30px 25px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .line1 {
+        width: 40px;
+    }
+
+    .toggle-option {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}
+  
+/* Gender selection styling */
+.gender-selection {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.gender-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+.gender-option:hover {
+  border-color: #6a5acd;
+  background-color: #f5f3ff;
+}
+
+.gender-option.selected {
+  border-color: #6a5acd;
+  background-color: #f0ecff;
+  box-shadow: 0 2px 8px rgba(106, 90, 205, 0.2);
+}
+
+.gender-option input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.gender-icon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #6a5acd;
+}
+
+.gender-text {
+  font-weight: 500;
+  color: #333;
+}
+
+.gender-option.selected .gender-text {
+  color: #6a5acd;
+}
+  
