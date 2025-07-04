@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import "./inscription.css";
 import { motion, AnimatePresence } from "framer-motion";
+import { createClient } from '@supabase/supabase-js';
+
+// Initialize Supabase client
+const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // Fitness-themed icon component
 const FitnessIcon = ({ icon }) => {
@@ -91,6 +97,9 @@ const Inscription = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [isCoach, setIsCoach] = useState(false);
+  const [uploadedFile, setUploadedFile] = useState(null);
+  const [uploadedCertificate, setUploadedCertificate] = useState(null);
+  const [isUploading, setIsUploading] = useState(false);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -99,7 +108,6 @@ const Inscription = () => {
     password: '',
     confirmPassword: '',
     gender: '',
-    certificateNumber: '',
     coachId: '',
     termsAccepted: false
   });
@@ -127,19 +135,16 @@ const Inscription = () => {
     if (type === 'coach') {
       setFormData({
         ...formData,
-        certificateNumber: formData.certificateNumber || '',
         coachId: formData.coachId || ''
       });
     } else {
       setFormData({
         ...formData,
-        certificateNumber: '',
         coachId: ''
       });
     }
     
     const clearedErrors = { ...errors };
-    delete clearedErrors.certificateNumber;
     delete clearedErrors.coachId;
     setErrors(clearedErrors);
   };
@@ -193,12 +198,8 @@ const Inscription = () => {
       }
       
       if (isCoach) {
-        if (!formData.certificateNumber) {
-          newErrors.certificateNumber = 'Le numéro de certificat est requis';
-        }
-        
-        if (!formData.coachId) {
-          newErrors.coachId = 'L\'identifiant de coach est requis';
+        if (!uploadedFile) {
+          newErrors.coachId = 'Veuillez télécharger votre document d\'identité';
         }
       }
       
@@ -211,29 +212,252 @@ const Inscription = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    // Validate file type
+    const allowedTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+    if (!allowedTypes.includes(file.type)) {
+      setErrors({
+        ...errors,
+        coachId: 'Format de fichier non supporté. Utilisez JPG, PNG ou PDF.'
+      });
+      return;
+    }
+
+    // Validate file size (max 5MB)
+    const maxSize = 5 * 1024 * 1024; // 5MB
+    if (file.size > maxSize) {
+      setErrors({
+        ...errors,
+        coachId: 'Le fichier est trop volumineux. Taille maximale: 5MB'
+      });
+      return;
+    }
+
+    setUploadedFile(file);
+    setErrors({
+      ...errors,
+      coachId: ''
+    });
+  };
+
+  const removeFile = () => {
+    setUploadedFile(null);
+  };
+
+  const uploadFileToSupabase = async (file) => {
+    try {
+      setIsUploading(true);
+      
+      // Create a unique file name
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Math.random().toString(36).substring(2)}_${Date.now()}.${fileExt}`;
+      
+      // Upload file to public bucket
+      const { data, error: uploadError } = await supabase.storage
+        .from('cin')
+        .upload(fileName, file, {
+          cacheControl: '3600',
+          upsert: false
+        });
+
+      if (uploadError) {
+        console.error('Upload error:', uploadError);
+        throw new Error(`Erreur d'upload: ${uploadError.message}`);
+      }
+
+      // Get the public URL
+      const { data: { publicUrl } } = supabase.storage
+        .from('cin')
+        .getPublicUrl(fileName);
+
+      return publicUrl;
+    } catch (error) {
+      console.error('Detailed upload error:', error);
+      throw new Error(`Erreur de téléchargement: ${error.message}`);
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  const handleCertificateUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    // Validate file type
+    const allowedTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+    if (!allowedTypes.includes(file.type)) {
+      setErrors({
+        ...errors,
+        certificateNumber: 'Format de fichier non supporté. Utilisez JPG, PNG ou PDF.'
+      });
+      return;
+    }
+
+    // Validate file size (max 5MB)
+    const maxSize = 5 * 1024 * 1024; // 5MB
+    if (file.size > maxSize) {
+      setErrors({
+        ...errors,
+        certificateNumber: 'Le fichier est trop volumineux. Taille maximale: 5MB'
+      });
+      return;
+    }
+
+    setUploadedCertificate(file);
+    setErrors({
+      ...errors,
+      certificateNumber: ''
+    });
+  };
+
+  const removeCertificate = () => {
+    setUploadedCertificate(null);
+  };
+
+  const uploadCertificateToSupabase = async (file) => {
+    try {
+      setIsUploading(true);
+      
+      // Create a unique file name
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Math.random().toString(36).substring(2)}_${Date.now()}.${fileExt}`;
+      
+      // Upload file to certificate bucket
+      const { data, error: uploadError } = await supabase.storage
+        .from('certificate')
+        .upload(fileName, file);
+
+      if (uploadError) {
+        console.error('Upload error:', uploadError);
+        throw new Error(`Erreur d'upload: ${uploadError.message}`);
+      }
+
+      // Get the public URL
+      const { data: { publicUrl } } = supabase.storage
+        .from('certificate')
+        .getPublicUrl(fileName);
+
+      return publicUrl;
+    } catch (error) {
+      console.error('Detailed upload error:', error);
+      throw new Error(`Erreur de téléchargement: ${error.message}`);
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (validateForm(2)) {
-      console.log('Form submitted successfully:', formData);
-      setFormSubmitted(true);
-      
-      setTimeout(() => {
-        setFormData({
-          name: '',
-          email: '',
-          dateOfBirth: '',
-          password: '',
-          confirmPassword: '',
-          gender: '',
-          certificateNumber: '',
-          coachId: '',
-          termsAccepted: false
+      try {
+        let finalFormData = { ...formData };
+
+        // First, create the user with email verification
+        const { data: authData, error: authError } = await supabase.auth.signUp({
+          email: formData.email,
+          password: formData.password,
+          options: {
+            data: {
+              name: formData.name,
+              date_of_birth: formData.dateOfBirth,
+              gender: formData.gender
+            },
+            emailRedirectTo: `${window.location.origin}/auth/callback`
+          }
         });
-        setCurrentStep(1);
-        setFormSubmitted(false);
-        setIsCoach(false);
-      }, 5000);
+
+        if (authError) {
+          throw new Error(`Erreur de création du compte: ${authError.message}`);
+        }
+
+        // Create user record in the user table
+        const { error: userError } = await supabase
+          .from('user')
+          .insert([
+            {
+              user_id: authData.user.id,
+              Full_name: formData.name,
+              email: formData.email,
+              birthdate: formData.dateOfBirth,
+              gender: formData.gender
+            }
+          ]);
+
+        if (userError) {
+          throw new Error(`Erreur de création du profil utilisateur: ${userError.message}`);
+        }
+
+        // If user is a coach and has selected files
+        if (isCoach) {
+          try {
+            let cinUrl = null;
+            let certificateUrl = null;
+
+            if (uploadedFile) {
+              cinUrl = await uploadFileToSupabase(uploadedFile);
+            }
+            
+            if (uploadedCertificate) {
+              certificateUrl = await uploadCertificateToSupabase(uploadedCertificate);
+            }
+            
+            // Create coach record with user ID
+            const { error: coachError } = await supabase
+              .from('coach')
+              .insert([
+                { 
+                  coach_id: authData.user.id,
+                  user_id: authData.user.id,
+                  cin: cinUrl,
+                  certificate: certificateUrl
+                }
+              ]);
+
+            if (coachError) {
+              console.error('Coach creation error:', coachError);
+              throw new Error(`Erreur de création du profil coach: ${coachError.message}`);
+            }
+          } catch (uploadError) {
+            console.error('File upload failed:', uploadError);
+            setErrors({
+              ...errors,
+              coachId: uploadError.message || 'Erreur lors du téléchargement des fichiers. Veuillez réessayer.'
+            });
+            return;
+          }
+        }
+
+        // Show success message with email verification instructions
+        setFormSubmitted(true);
+        
+        setTimeout(() => {
+          setFormData({
+            name: '',
+            email: '',
+            dateOfBirth: '',
+            password: '',
+            confirmPassword: '',
+            gender: '',
+            coachId: '',
+            termsAccepted: false
+          });
+          setUploadedFile(null);
+          setUploadedCertificate(null);
+          setCurrentStep(1);
+          setFormSubmitted(false);
+          setIsCoach(false);
+        }, 5000);
+      } catch (error) {
+        console.error('Form submission error:', error);
+        setErrors({
+          ...errors,
+          coachId: error.message || 'Une erreur est survenue. Veuillez réessayer.'
+        });
+      }
     }
   };
 
@@ -252,22 +476,22 @@ const Inscription = () => {
   };
 
   return (
-    <div id="inscription" className="inscription-page">
-      <div className="section-header">
-        <div className="line1"></div>
-        <h1 className="section-title">Inscription</h1>
-        <div className="line1"></div>
+    <div id="inscription" className="insc_page">
+      <div className="insc_section-header">
+        <div className="insc_line1"></div>
+        <h1 className="insc_section-title">Inscription</h1>
+        <div className="insc_line1"></div>
       </div>
 
       <motion.div 
-        className="inscription-container"
+        className="insc_container"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="info-graphic">
-          <div className="fitness-graphic">
-            <div className="graphic-text">
+        <div className="insc_info-graphic">
+          <div className="insc_fitness-graphic">
+            <div className="insc_graphic-text">
               <h3>Votre parcours fitness</h3>
               <ul>
               <li><span>📋</span> Programmes d'entraînement personnalisés</li>
@@ -283,22 +507,26 @@ const Inscription = () => {
           </div>
         </div>
 
-        <div className="inscription-form">
+        <div className="insc_form">
           <AnimatePresence mode="wait">
             {formSubmitted ? (
               <motion.div 
-                className="success-message"
+                className="insc_success-message"
                 key="success"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.4 }}
               >
-                <div className="success-icon">
+                <div className="insc_success-icon">
                   <FitnessIcon icon="check" />
                 </div>
                 <h3>Félicitations!</h3>
-                <p>Votre compte {isCoach ? 'coach' : 'utilisateur'} a été créé avec succès. Bienvenue dans votre parcours de fitness!</p>
+                <p>
+                  {isCoach 
+                    ? "Votre compte coach a été créé avec succès! Veuillez vérifier votre email pour activer votre compte."
+                    : "Votre compte a été créé avec succès! Veuillez vérifier votre email pour l'activer."}
+                </p>
               </motion.div>
             ) : (
               <motion.form 
@@ -311,48 +539,48 @@ const Inscription = () => {
                   Rejoignez-nous
                 </h2>
                 
-                <div className="user-type-toggle">
+                <div className="insc_user-type-toggle">
                   <button
                     type="button"
-                    className={`toggle-option ${!isCoach ? 'active' : ''}`}
+                    className={`insc_toggle-option ${!isCoach ? 'insc_active' : ''}`}
                     onClick={() => toggleUserType('user')}
                   >
                     Utilisateur
                   </button>
                   <button
                     type="button"
-                    className={`toggle-option ${isCoach ? 'active' : ''}`}
+                    className={`insc_toggle-option ${isCoach ? 'insc_active' : ''}`}
                     onClick={() => toggleUserType('coach')}
                   >
                     Coach
                   </button>
                 </div>
 
-                <div className="form-progress">
-                  <div className={`progress-step ${currentStep >= 1 ? 'active' : ''}`}>1</div>
-                  <div className="progress-line">
-                    <div className="progress-line-inner"></div>
-                  </div>
-                  <div className={`progress-step ${currentStep >= 2 ? 'active' : ''}`}>2</div>
-                </div>
-
                 <AnimatePresence mode="wait">
                   {currentStep === 1 ? (
                     <motion.div 
-                      className="form-section"
+                      className="insc_form-section"
                       key="step1"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 20 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <p className="section-subtitle">Informations de base</p>
+                      <p className="insc_section-subtitle">Informations de base</p>
                       
-                      <div className="form-fields">
-                        <div className="input-group">
-                          <label className="field-label" htmlFor="name">Nom complet</label>
-                          <div className="input-with-icon">
-                            <div className="field-icon">
+                      <div className="insc_form-progress">
+                        <div className={`insc_progress-step ${currentStep >= 1 ? 'insc_active' : ''}`}>1</div>
+                        <div className="insc_progress-line">
+                          <div className="insc_progress-line-inner"></div>
+                        </div>
+                        <div className={`insc_progress-step ${currentStep >= 2 ? 'insc_active' : ''}`}>2</div>
+                      </div>
+
+                      <div className="insc_form-fields">
+                        <div className="insc_input-group">
+                          <label className="insc_field-label" htmlFor="name">Nom complet</label>
+                          <div className="insc_input-with-icon">
+                            <div className="insc_field-icon">
                               <FitnessIcon icon="user" />
                             </div>
                             <input
@@ -362,16 +590,16 @@ const Inscription = () => {
                               value={formData.name}
                               onChange={handleChange}
                               placeholder="Votre nom"
-                              className={errors.name ? 'error-input' : ''}
+                              className={errors.name ? 'insc_error-input' : ''}
                             />
                           </div>
-                          {errors.name && <div className="error-message">{errors.name}</div>}
+                          {errors.name && <div className="insc_error-message">{errors.name}</div>}
                         </div>
                         
-                        <div className="input-group">
-                          <label className="field-label" htmlFor="email">Adresse email</label>
-                          <div className="input-with-icon">
-                            <div className="field-icon">
+                        <div className="insc_input-group">
+                          <label className="insc_field-label" htmlFor="email">Adresse email</label>
+                          <div className="insc_input-with-icon">
+                            <div className="insc_field-icon">
                               <FitnessIcon icon="email" />
                             </div>
                             <input
@@ -381,16 +609,16 @@ const Inscription = () => {
                               value={formData.email}
                               onChange={handleChange}
                               placeholder="exemple@domaine.com"
-                              className={errors.email ? 'error-input' : ''}
+                              className={errors.email ? 'insc_error-input' : ''}
                             />
                           </div>
-                          {errors.email && <div className="error-message">{errors.email}</div>}
+                          {errors.email && <div className="insc_error-message">{errors.email}</div>}
                         </div>
                         
-                        <div className="input-group">
-                          <label className="field-label" htmlFor="dateOfBirth">Date de naissance</label>
-                          <div className="input-with-icon">
-                            <div className="field-icon">
+                        <div className="insc_input-group">
+                          <label className="insc_field-label" htmlFor="dateOfBirth">Date de naissance</label>
+                          <div className="insc_input-with-icon">
+                            <div className="insc_field-icon">
                               <FitnessIcon icon="calendar" />
                             </div>
                             <input
@@ -400,17 +628,17 @@ const Inscription = () => {
                               value={formData.dateOfBirth}
                               onChange={handleChange}
                               max={new Date().toISOString().split('T')[0]}
-                              className={errors.dateOfBirth ? 'error-input' : ''}
+                              className={errors.dateOfBirth ? 'insc_error-input' : ''}
                             />
                           </div>
-                          {errors.dateOfBirth && <div className="error-message">{errors.dateOfBirth}</div>}
+                          {errors.dateOfBirth && <div className="insc_error-message">{errors.dateOfBirth}</div>}
                         </div>
                       </div>
                       
-                      <div className="form-actions">
+                      <div className="insc_form-actions">
                         <button 
                           type="button" 
-                          className="next-button"
+                          className="insc_next-button"
                           onClick={nextStep}
                         >
                           Suivant
@@ -419,23 +647,23 @@ const Inscription = () => {
                     </motion.div>
                   ) : (
                     <motion.div 
-                      className="form-section"
+                      className="insc_form-section"
                       key="step2"
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <p className="section-subtitle">Sécurité et préférences</p>
+                      <p className="insc_section-subtitle">Sécurité et préférences</p>
                       
-                      <div className="form-fields">
-                        <div className="input-group">
-                          <label className="field-label" htmlFor="password">Mot de passe</label>
-                          <div className="input-with-icon">
-                            <div className="field-icon">
+                      <div className="insc_form-fields">
+                        <div className="insc_input-group">
+                          <label className="insc_field-label" htmlFor="password">Mot de passe</label>
+                          <div className="insc_input-with-icon">
+                            <div className="insc_field-icon">
                               <FitnessIcon icon="password" />
                             </div>
-                            <div className="password-field">
+                            <div className="insc_password-field">
                               <input
                                 type={showPassword ? "text" : "password"}
                                 id="password"
@@ -443,24 +671,24 @@ const Inscription = () => {
                                 value={formData.password}
                                 onChange={handleChange}
                                 placeholder="Au moins 6 caractères"
-                                className={errors.password ? 'error-input' : ''}
+                                className={errors.password ? 'insc_error-input' : ''}
                               />
                               <button 
                                 type="button" 
-                                className="password-toggle" 
+                                className="insc_password-toggle" 
                                 onClick={togglePasswordVisibility}
                               >
                                 {showPassword ? "👁️" : "👁️‍🗨️"}
                               </button>
                             </div>
                           </div>
-                          {errors.password && <div className="error-message">{errors.password}</div>}
+                          {errors.password && <div className="insc_error-message">{errors.password}</div>}
                         </div>
                         
-                        <div className="input-group">
-                          <label className="field-label" htmlFor="confirmPassword">Confirmer le mot de passe</label>
-                          <div className="input-with-icon">
-                            <div className="field-icon">
+                        <div className="insc_input-group">
+                          <label className="insc_field-label" htmlFor="confirmPassword">Confirmer le mot de passe</label>
+                          <div className="insc_input-with-icon">
+                            <div className="insc_field-icon">
                               <FitnessIcon icon="password" />
                             </div>
                             <input
@@ -470,20 +698,20 @@ const Inscription = () => {
                               value={formData.confirmPassword}
                               onChange={handleChange}
                               placeholder="Confirmez votre mot de passe"
-                              className={errors.confirmPassword ? 'error-input' : ''}
+                              className={errors.confirmPassword ? 'insc_error-input' : ''}
                             />
                           </div>
-                          {errors.confirmPassword && <div className="error-message">{errors.confirmPassword}</div>}
+                          {errors.confirmPassword && <div className="insc_error-message">{errors.confirmPassword}</div>}
                         </div>
                         
-                        <div className="input-group">
-                          <label className="field-label">Genre</label>
-                          <div className="input-with-icon">
-                            <div className="field-icon">
+                        <div className="insc_input-group">
+                          <label className="insc_field-label">Genre</label>
+                          <div className="insc_input-with-icon">
+                            <div className="insc_field-icon">
                               <FitnessIcon icon="gender" />
                             </div>
-                            <div className="gender-selection">
-                              <label className={`gender-option ${formData.gender === 'male' ? 'selected' : ''}`}>
+                            <div className="insc_gender-selection">
+                              <label className={`insc_gender-option ${formData.gender === 'male' ? 'insc_selected' : ''}`}>
                                 <input
                                   type="radio"
                                   name="gender"
@@ -491,10 +719,10 @@ const Inscription = () => {
                                   checked={formData.gender === 'male'}
                                   onChange={handleChange}
                                 />
-                                <span className="gender-icon">♂</span>
-                                <span className="gender-text">Homme</span>
+                                <span className="insc_gender-icon">♂</span>
+                                <span className="insc_gender-text">Homme</span>
                               </label>
-                              <label className={`gender-option ${formData.gender === 'female' ? 'selected' : ''}`}>
+                              <label className={`insc_gender-option ${formData.gender === 'female' ? 'insc_selected' : ''}`}>
                                 <input
                                   type="radio"
                                   name="gender"
@@ -502,82 +730,132 @@ const Inscription = () => {
                                   checked={formData.gender === 'female'}
                                   onChange={handleChange}
                                 />
-                                <span className="gender-icon">♀</span>
-                                <span className="gender-text">Femme</span>
+                                <span className="insc_gender-icon">♀</span>
+                                <span className="insc_gender-text">Femme</span>
                               </label>
                             </div>
                           </div>
-                          {errors.gender && <div className="error-message">{errors.gender}</div>}
+                          {errors.gender && <div className="insc_error-message">{errors.gender}</div>}
                         </div>
                         
                         {isCoach && (
                           <>
-                            <div className="input-group">
-                              <label className="field-label" htmlFor="certificateNumber">Numéro de certificat</label>
-                              <div className="input-with-icon">
-                                <div className="field-icon">
-                                  <FitnessIcon icon="certificate" />
-                                </div>
-                                <input
-                                  type="text"
-                                  id="certificateNumber"
-                                  name="certificateNumber"
-                                  value={formData.certificateNumber}
-                                  onChange={handleChange}
-                                  placeholder="Entrez votre numéro de certificat"
-                                  className={errors.certificateNumber ? 'error-input' : ''}
-                                />
-                              </div>
-                              {errors.certificateNumber && <div className="error-message">{errors.certificateNumber}</div>}
-                            </div>
-                            
-                            <div className="input-group">
-                              <label className="field-label" htmlFor="coachId">Identifiant de coach</label>
-                              <div className="input-with-icon">
-                                <div className="field-icon">
+                            <div className="insc_input-group">
+                              <label className="insc_field-label" htmlFor="coachId">Document d'identité</label>
+                              <div className="insc_input-with-icon">
+                                <div className="insc_field-icon">
                                   <FitnessIcon icon="id" />
                                 </div>
-                                <input
-                                  type="text"
-                                  id="coachId"
-                                  name="coachId"
-                                  value={formData.coachId}
-                                  onChange={handleChange}
-                                  placeholder="Entrez votre ID de coach"
-                                  className={errors.coachId ? 'error-input' : ''}
-                                />
+                                <div className="insc_file-upload">
+                                  <input
+                                    type="file"
+                                    id="coachId"
+                                    name="coachId"
+                                    className="insc_file-upload-input"
+                                    onChange={handleFileUpload}
+                                    accept=".jpg,.jpeg,.png,.pdf"
+                                  />
+                                  <label htmlFor="coachId" className="insc_file-upload-label">
+                                    <span className="insc_file-upload-icon">📄</span>
+                                    <span className="insc_file-upload-text">
+                                      {uploadedFile ? 'Fichier sélectionné' : 'Cliquez pour télécharger (JPG, PNG, PDF)'}
+                                    </span>
+                                  </label>
+                                  {uploadedFile && (
+                                    <div className="insc_file-upload-preview">
+                                      {uploadedFile.type.startsWith('image/') ? (
+                                        <img src={URL.createObjectURL(uploadedFile)} alt="Preview" />
+                                      ) : (
+                                        <span className="insc_file-upload-icon">📄</span>
+                                      )}
+                                      <span className="insc_file-name">{uploadedFile.name}</span>
+                                      <button
+                                        type="button"
+                                        className="insc_remove-file"
+                                        onClick={removeFile}
+                                      >
+                                        ✕
+                                      </button>
+                                    </div>
+                                  )}
+                                </div>
                               </div>
-                              {errors.coachId && <div className="error-message">{errors.coachId}</div>}
+                              {errors.coachId && <div className="insc_error-message">{errors.coachId}</div>}
+                              {isUploading && <div className="insc_error-message">Téléchargement en cours...</div>}
+                            </div>
+                            
+                            <div className="insc_input-group">
+                              <label className="insc_field-label" htmlFor="certificateNumber">Certificat (Optionnel)</label>
+                              <div className="insc_input-with-icon">
+                                <div className="insc_field-icon">
+                                  <FitnessIcon icon="certificate" />
+                                </div>
+                                <div className="insc_file-upload">
+                                  <input
+                                    type="file"
+                                    id="certificateNumber"
+                                    name="certificateNumber"
+                                    className="insc_file-upload-input"
+                                    onChange={handleCertificateUpload}
+                                    accept=".jpg,.jpeg,.png,.pdf"
+                                  />
+                                  <label htmlFor="certificateNumber" className="insc_file-upload-label">
+                                    <span className="insc_file-upload-icon">📄</span>
+                                    <span className="insc_file-upload-text">
+                                      {uploadedCertificate ? 'Fichier sélectionné' : 'Cliquez pour télécharger votre certificat (JPG, PNG, PDF)'}
+                                    </span>
+                                  </label>
+                                  {uploadedCertificate && (
+                                    <div className="insc_file-upload-preview">
+                                      {uploadedCertificate.type.startsWith('image/') ? (
+                                        <img src={URL.createObjectURL(uploadedCertificate)} alt="Preview" />
+                                      ) : (
+                                        <span className="insc_file-upload-icon">📄</span>
+                                      )}
+                                      <span className="insc_file-name">{uploadedCertificate.name}</span>
+                                      <button
+                                        type="button"
+                                        className="insc_remove-file"
+                                        onClick={removeCertificate}
+                                      >
+                                        ✕
+                                      </button>
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                              {errors.certificateNumber && <div className="insc_error-message">{errors.certificateNumber}</div>}
+                              {isUploading && <div className="insc_error-message">Téléchargement en cours...</div>}
                             </div>
                           </>
                         )}
                         
-                        <div className="input-group terms-checkbox">
-                          <label className="checkbox-container">
+                        <div className="insc_input-group insc_terms-checkbox">
+                          <label className="insc_checkbox-container">
                             <input
                               type="checkbox"
                               name="termsAccepted"
                               checked={formData.termsAccepted}
                               onChange={handleChange}
                             />
-                            <span className="checkmark"></span>
-                            <span className="checkbox-label">J'accepte les conditions d'utilisation et la politique de confidentialité</span>
+                            <span className="insc_checkmark"></span>
+                            <span className="insc_checkbox-label">J'accepte les conditions d'utilisation et la politique de confidentialité</span>
                           </label>
-                          {errors.termsAccepted && <div className="error-message">{errors.termsAccepted}</div>}
+                          {errors.termsAccepted && <div className="insc_error-message">{errors.termsAccepted}</div>}
                         </div>
                       </div>
                       
-                      <div className="form-actions">
+                      <div className="insc_form-actions">
                         <button 
                           type="button" 
-                          className="back-button"
+                          className="insc_back-button"
                           onClick={prevStep}
                         >
                           Retour
                         </button>
                         <button 
                           type="button" 
-                          className="submit-button"
+                          className="insc_submit-button"
                           onClick={handleSubmit}
                         >
                           {isCoach ? "Devenir coach" : "Commencer mon parcours fitness"}

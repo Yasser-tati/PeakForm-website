@@ -46,10 +46,10 @@
 
     /* Download Button */
     .download-button {
-        background: #5a2b80;
-        color: #fff;
+        background: linear-gradient(90deg, #9d6ff5, #592dd1);
+        color: white;
         font-size: 14px;
-        font-weight: 500;
+        font-weight: 600;
         padding: 12px 20px;
         border-radius: 8px;
         border: none;
@@ -65,9 +65,8 @@
     }
 
     .download-button:hover {
-        background: #7a3dad;
         transform: translateY(-2px);
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 5px 15px rgba(89, 45, 209, 0.3);
     }
 
     .download-icon {
@@ -84,6 +83,7 @@
         font-weight: 500;
         color: #bbb;
         margin-bottom: 15px;
+        text-align: center;
     }
 
     .payment-logos {
@@ -94,15 +94,17 @@
     }
 
     .payment-logo {
-        width: 50px;
-        height: auto;
+        width: 60px;
+        height: 35px;
+        object-fit: contain;
+        border-radius: 4px;
+        padding: 3px;
+        background-color: rgba(255, 255, 255, 0.9);
         transition: transform 0.3s ease;
-        filter: brightness(0.9);
     }
 
     .payment-logo:hover {
         transform: scale(1.1);
-        filter: brightness(1);
     }
 
     /* --- Center Block --- */
@@ -420,5 +422,40 @@
             margin-left: 0;
             justify-content: center;
         }
+    }
+
+    /* Add these styles to your existing Footer.css */
+
+    .app-message {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .inscription-button {
+        background: linear-gradient(90deg, #592dd1, #9d6ff5);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+    .inscription-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(89, 45, 209, 0.3);
+    }
+
+    .inscription-icon {
+        font-size: 16px;
     }
 

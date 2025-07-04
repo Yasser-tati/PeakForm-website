@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from 'react-i18next';
 import "./Avis.css";
 import Alex from "./image/Alex.jpg"
 import Antoine from "./image/Antoine.webp"
@@ -9,6 +10,7 @@ import sarah from "./image/sarah.jpeg"
 
 const Avis = () => {
   const [showMore, setShowMore] = useState(false);
+  const { t } = useTranslation();
 
   const handleShowMore = () => {
     setShowMore(true);
@@ -18,7 +20,7 @@ const Avis = () => {
     <div id="avis" className="main-container">
       <div className="section-header">
         <div className="line"></div>
-        <h2 className="section-title">Témoignages</h2>
+        <h2 className="section-title">{t('avis.title', 'Témoignages')}</h2>
         <div className="line"></div>
       </div>
       <div className="avis-container">
@@ -26,7 +28,7 @@ const Avis = () => {
         <div className="featured-review">
           <div className="quote-icon">"</div>
           <p>
-            Très satisfait de l'application ! Elle me permet d'organiser mes séances et de donner des retours instantanés à mes clients. Le suivi des progrès est précis et motivant pour eux, c'est un excellent outil pour ma pratique.
+            {t('avis.featured.text', 'Très satisfait de l\'application ! Elle me permet d\'organiser mes séances et de donner des retours instantanés à mes clients. Le suivi des progrès est précis et motivant pour eux, c\'est un excellent outil pour ma pratique.')}
           </p>
           <div className="featured-user">
             <img
@@ -45,8 +47,7 @@ const Avis = () => {
         <div className="reviews-row">
           <div className="review-card secondary">
             <p>
-              “L'application est géniale ! Elle est facile à utiliser et les programmes sont super bien détaillés. 
-              J'apprécie particulièrement de pouvoir suivre mes progrès au fil du temps et de recevoir des notifications motivantes.”
+              "{t('avis.reviews.elodie', 'L\'application est géniale ! Elle est facile à utiliser et les programmes sont super bien détaillés. J\'apprécie particulièrement de pouvoir suivre mes progrès au fil du temps et de recevoir des notifications motivantes.')}"
             </p>
             <div className="review-user">
               <img
@@ -65,8 +66,7 @@ const Avis = () => {
 
           <div className="review-card secondary">
             <p>
-              “Très bonne expérience avec cette app ! Elle me permet de rester motivé et de suivre mes séances de manière structurée. 
-              Les rappels réguliers sont très utiles pour ne jamais manquer une session.”
+              "{t('avis.reviews.antoine', 'Très bonne expérience avec cette app ! Elle me permet de rester motivé et de suivre mes séances de manière structurée. Les rappels réguliers sont très utiles pour ne jamais manquer une session.')}"
             </p>
             <div className="review-user">
               <img
@@ -85,7 +85,7 @@ const Avis = () => {
         {/* Show More Button */}
         {!showMore && (
           <div className="show-more-btn">
-            <button onClick={handleShowMore}>Afficher plus de témoignages</button>
+            <button onClick={handleShowMore}>{t('avis.showMore', 'Afficher plus de témoignages')}</button>
           </div>
         )}
 
@@ -94,8 +94,7 @@ const Avis = () => {
           <div className="reviews-row">
             <div className="review-card secondary">
               <p>
-                “L'application est très bien conçue et intuitive. Elle me permet de suivre facilement les progrès de mes clients et d'adapter 
-                leurs entraînements en temps réel. J'adore l'interface simple et claire.”
+                "{t('avis.reviews.sarah', 'L\'application est très bien conçue et intuitive. Elle me permet de suivre facilement les progrès de mes clients et d\'adapter leurs entraînements en temps réel. J\'adore l\'interface simple et claire.')}"
               </p>
               <div className="review-user">
                 <img
@@ -112,8 +111,7 @@ const Avis = () => {
 
             <div className="review-card secondary">
               <p>
-                “L'application est bien conçue, avec des exercices adaptés à mon niveau. 
-                J'apprécie particulièrement la fonctionnalité pour poser des questions à mon coach directement via l'app.”
+                "{t('avis.reviews.lucas', 'L\'application est bien conçue, avec des exercices adaptés à mon niveau. J\'apprécie particulièrement la fonctionnalité pour poser des questions à mon coach directement via l\'app.')}"
               </p>
               <div className="review-user">
                 <img
@@ -130,8 +128,7 @@ const Avis = () => {
 
             <div className="review-card secondary">
               <p>
-                “Application pratique. J'adore pouvoir voir mes résultats, et l'interface est très fluide. 
-                C'est un excellent moyen de rester engagée dans mes entraînements, surtout avec les conseils de mon coach.”
+                "{t('avis.reviews.isabelle', 'Application pratique. J\'adore pouvoir voir mes résultats, et l\'interface est très fluide. C\'est un excellent moyen de rester engagée dans mes entraînements, surtout avec les conseils de mon coach.')}"
               </p>
               <div className="review-user">
                 <img

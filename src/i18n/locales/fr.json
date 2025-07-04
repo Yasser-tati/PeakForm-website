@@ -1,0 +1,238 @@
+{
+  "common": {
+    "welcome": "Bienvenue sur Mon Site Web",
+    "home": "Accueil",
+    "about": "À Propos",
+    "contact": "Contact",
+    "settings": "Paramètres",
+    "language": "Langue"
+  },
+  "navigation": {
+    "about": "À PROPOS",
+    "opportunities": "OPPORTUNITÉS",
+    "ourApp": "NOTRE APPLICATION",
+    "testimonials": "TÉMOIGNAGES"
+  },
+  "buttons": {
+    "download": "Télécharger",
+    "register": "S'inscrire"
+  },
+  "popup": {
+    "downloadTitle": "Téléchargez PeakForm",
+    "scanQR": "Scannez le code QR pour télécharger l'application",
+    "scanToDownload": "Scannez pour télécharger",
+    "or": "ou",
+    "downloadGoogle": "Google Play",
+    "downloadApple": "App Store"
+  },
+  "aboutUs": {
+    "mobileApp": "Application mobile",
+    "slogan": "Sculptez votre corps de rêve !",
+    "downloadApp": "Téléchargez l'application",
+    "features": {
+      "personalized": {
+        "title": "Programmes personnalisés",
+        "description": "Entraînements adaptés à vos objectifs"
+      },
+      "health": {
+        "title": "Suivi de santé",
+        "description": "Mesurez vos progrès quotidiens"
+      },
+      "analytics": {
+        "title": "Analyses détaillées",
+        "description": "Optimisez vos performances"
+      }
+    }
+  },
+  "opportunite": {
+    "title": "Défiez Vos Limites",
+    "subtitle": "pour obtenir les meilleurs résultats",
+    "goals": {
+      "intensive": {
+        "title": "Entraînement Intensif",
+        "description": "Idéal pour ceux qui veulent repousser leurs limites et améliorer leur endurance physique tout en renforçant leur corps."
+      },
+      "strength": {
+        "title": "Gain de Force",
+        "description": "Un programme conçu pour augmenter votre puissance musculaire et vous aider à soulever des charges plus lourdes."
+      },
+      "sculpting": {
+        "title": "Sculpture du Corps",
+        "description": "Pour ceux qui souhaitent affiner leur silhouette en développant des muscles toniques et bien définis."
+      },
+      "conditioning": {
+        "title": "Conditionnement Physique",
+        "description": "Un entraînement complet pour améliorer votre forme générale et renforcer vos muscles de manière équilibrée."
+      },
+      "muscular": {
+        "title": "Développement Musculaire",
+        "description": "Pour maximiser la croissance musculaire tout en maintenant un pourcentage de graisse corporelle faible."
+      },
+      "nutrition": {
+        "title": "Nutrition",
+        "description": "Associez un programme de renforcement musculaire à un plan nutritionnel adapté pour optimiser vos gains et accélérer votre récupération."
+      },
+      "toning": {
+        "title": "Tonification Musculaire",
+        "description": "Parfait pour raffermir les muscles et obtenir un corps plus sculpté sans prendre trop de volume."
+      },
+      "endurance": {
+        "title": "Endurance et Résistance",
+        "description": "Améliorez votre endurance musculaire pour tenir plus longtemps et récupérer plus rapidement."
+      }
+    }
+  },
+  "screenshots": {
+    "title": "NOTRE APPLICATION",
+    "subtitle": "Découvrez l'interface intuitive de notre application",
+    "previous": "Image précédente",
+    "next": "Image suivante",
+    "close": "Fermer l'aperçu",
+    "altText": "Capture d'écran {{number}}",
+    "goToImage": "Aller à l'image {{number}}"
+  },
+  "avis": {
+    "title": "Témoignages",
+    "showMore": "Afficher plus de témoignages",
+    "featured": {
+      "text": "Très satisfait de l'application ! Elle me permet d'organiser mes séances et de donner des retours instantanés à mes clients. Le suivi des progrès est précis et motivant pour eux, c'est un excellent outil pour ma pratique."
+    },
+    "reviews": {
+      "elodie": "L'application est géniale ! Elle est facile à utiliser et les programmes sont super bien détaillés. J'apprécie particulièrement de pouvoir suivre mes progrès au fil du temps et de recevoir des notifications motivantes.",
+      "antoine": "Très bonne expérience avec cette app ! Elle me permet de rester motivé et de suivre mes séances de manière structurée. Les rappels réguliers sont très utiles pour ne jamais manquer une session.",
+      "sarah": "L'application est très bien conçue et intuitive. Elle me permet de suivre facilement les progrès de mes clients et d'adapter leurs entraînements en temps réel. J'adore l'interface simple et claire.",
+      "lucas": "L'application est bien conçue, avec des exercices adaptés à mon niveau. J'apprécie particulièrement la fonctionnalité pour poser des questions à mon coach directement via l'app.",
+      "isabelle": "Application pratique. J'adore pouvoir voir mes résultats, et l'interface est très fluide. C'est un excellent moyen de rester engagée dans mes entraînements, surtout avec les conseils de mon coach."
+    }
+  },
+  "inscription": {
+    "title": "INSCRIPTION",
+    "subtitle": "Rejoignez notre communauté fitness et transformez votre corps",
+    "steps": {
+      "account": "Information du compte",
+      "userInfo": "Information personnelle",
+      "coachInfo": "Information du coach"
+    },
+    "userType": {
+      "client": "CLIENT",
+      "coach": "COACH"
+    },
+    "fields": {
+      "name": "Nom complet",
+      "email": "Email",
+      "password": "Mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "dob": "Date de naissance",
+      "gender": "Genre",
+      "certificate": "Numéro de certification",
+      "coachId": "ID Coach (optionnel)"
+    },
+    "placeholders": {
+      "name": "Entrez votre nom",
+      "email": "Entrez votre email",
+      "password": "Créez un mot de passe",
+      "confirmPassword": "Confirmez votre mot de passe",
+      "certificate": "Entrez votre numéro de certification",
+      "coachId": "Si vous avez un coach, entrez son ID"
+    },
+    "gender": {
+      "male": "Homme",
+      "female": "Femme",
+      "other": "Autre"
+    },
+    "buttons": {
+      "next": "Suivant",
+      "back": "Retour",
+      "register": "S'inscrire"
+    },
+    "terms": "J'accepte les conditions d'utilisation et la politique de confidentialité",
+    "showPassword": "Afficher le mot de passe",
+    "hidePassword": "Masquer le mot de passe",
+    "success": {
+      "title": "Inscription réussie !",
+      "verified": "Votre compte a été créé avec succès. Vous pouvez maintenant vous connecter.",
+      "checkEmail": "Veuillez vérifier votre email pour activer votre compte."
+    },
+    "verification": {
+      "title": "Vérifiez votre email",
+      "sent": "Un email de vérification a été envoyé à",
+      "check": "J'ai vérifié mon email"
+    },
+    "errors": {
+      "nameRequired": "Le nom est requis",
+      "emailRequired": "L'email est requis",
+      "emailInvalid": "Format d'email invalide",
+      "dobRequired": "La date de naissance est requise",
+      "ageLimit": "Vous devez avoir au moins 18 ans",
+      "passwordRequired": "Le mot de passe est requis",
+      "passwordLength": "Le mot de passe doit contenir au moins 6 caractères",
+      "confirmPasswordRequired": "Veuillez confirmer le mot de passe",
+      "passwordMatch": "Les mots de passe ne correspondent pas",
+      "genderRequired": "Veuillez sélectionner votre genre",
+      "certificateRequired": "Le numéro de certificat est requis",
+      "coachIdRequired": "L'identifiant de coach est requis",
+      "termsRequired": "Vous devez accepter les conditions"
+    },
+    "apiErrors": {
+      "emailExists": "Cette adresse e-mail est déjà utilisée. Veuillez vous connecter ou utiliser une autre adresse e-mail.",
+      "connectionError": "Problème de connexion à Supabase. Vérifiez votre connexion internet et vos paramètres .env.",
+      "useDiagnostic": "Utilisez l'outil de diagnostic pour plus de détails.",
+      "specificError": "Erreur de connexion: {0}. {1}",
+      "generic": "Une erreur est survenue lors de l'inscription. Veuillez réessayer ultérieurement.",
+      "unexpected": "Une erreur inattendue est survenue. Veuillez réessayer ultérieurement ou contacter l'assistance.",
+      "verificationError": "Erreur lors de la vérification: Veuillez réessayer ultérieurement",
+      "notVerified": "Votre email n'a pas encore été vérifié. Veuillez vérifier votre boîte de réception et cliquer sur le lien de confirmation."
+    }
+  },
+  "footer": {
+    "tagline": "Votre partenaire fitness personnel",
+    "downloadApp": "Téléchargez l'application",
+    "securePayment": "Méthodes de paiement sécurisées",
+    "appTitle": "L'application",
+    "about": "À propos",
+    "opportunities": "Opportunités",
+    "screenshots": "Captures d'écran",
+    "reviews": "Avis clients",
+    "support": "Support",
+    "helpCenter": "Centre d'aide",
+    "contactUs": "Contactez-nous",
+    "faq": "FAQ",
+    "userGuide": "Guide d'utilisation",
+    "legal": "Légal",
+    "terms": "Conditions d'utilisation",
+    "privacy": "Politique de confidentialité",
+    "followUs": "Suivez-nous",
+    "copyright": "© 2025 PeakForm. Tous droits réservés."
+  },
+  "unauthorized": {
+    "title": "Accès non autorisé",
+    "message": "Vous n'avez pas les autorisations nécessaires pour accéder à cette page.",
+    "backHome": "Retour à l'accueil"
+  },
+  "authError": {
+    "title": "Erreur d'authentification",
+    "runDiagnostics": "Exécuter les diagnostics de connexion",
+    "connectionSuccess": "✅ Connexion réussie",
+    "problemDetected": "❌ Problème détecté",
+    "error": "Erreur",
+    "solution": "Solution",
+    "checkCredentials": "Veuillez vérifier vos informations d'identification Supabase dans votre fichier .env ou contacter l'administrateur du site.",
+    "backHome": "Retour à l'accueil"
+  },
+  "home": {
+    "title": "Bienvenue sur notre plateforme",
+    "description": "Ceci est une application React avec support i18n",
+    "getStarted": "Commencer"
+  },
+  "about": {
+    "title": "À Propos de Nous",
+    "description": "En savoir plus sur notre équipe et notre mission"
+  },
+  "contact": {
+    "title": "Contactez-Nous",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Envoyer"
+  }
+} 

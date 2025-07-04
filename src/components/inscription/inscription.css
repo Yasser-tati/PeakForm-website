@@ -1,5 +1,5 @@
 /* Main container */
-.inscription-page {
+.insc_page {
     background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
     width: 100%;
     min-height: 100vh;
@@ -15,7 +15,7 @@
     position: relative;
 }
 
-.inscription-page::before {
+.insc_page::before {
     content: '';
     position: absolute;
     top: 0;
@@ -26,7 +26,7 @@
     z-index: 1;
 }
   
-.section-header {
+.insc_section-header {
     text-align: center;
     margin-bottom: 40px;
     display: flex;
@@ -37,7 +37,7 @@
     z-index: 2;
 }
   
-.section-title {
+.insc_section-title {
     font-size: 2.5rem;
     font-weight: 700;
     color: #ffffff;
@@ -47,11 +47,11 @@
     text-transform: uppercase;
 }
   
-.inscription-container {
+.insc_container {
     display: flex;
     flex-direction: row;
     width: 90%;
-    max-width: 1000px;
+    max-width: 1550px;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -62,7 +62,7 @@
 }
   
 /* Info Graphic Section */
-.info-graphic {
+.insc_info-graphic {
     flex: 1;
     display: flex;
     align-items: center;
@@ -74,7 +74,7 @@
     color: white;
 }
 
-.info-graphic::before {
+.insc_info-graphic::before {
     content: '';
     position: absolute;
     top: 0;
@@ -88,7 +88,7 @@
     z-index: 1;
 }
 
-.fitness-graphic {
+.insc_fitness-graphic {
     position: relative;
     z-index: 3;
     width: 100%;
@@ -99,12 +99,12 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.graphic-text {
+.insc_graphic-text {
     text-align: left;
     padding: 20px;
 }
 
-.graphic-text h3 {
+.insc_graphic-text h3 {
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 25px;
@@ -115,7 +115,7 @@
     text-align: center;
 }
 
-.graphic-text h3::after {
+.insc_graphic-text h3::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -127,13 +127,13 @@
     border-radius: 2px;
 }
 
-.graphic-text ul {
+.insc_graphic-text ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.graphic-text li {
+.insc_graphic-text li {
     margin-bottom: 20px;
     font-size: 16px;
     display: flex;
@@ -142,12 +142,12 @@
     position: relative;
 }
 
-.graphic-text li span {
+.insc_graphic-text li span {
     margin-right: 15px;
     font-size: 20px;
 }
 
-.graphic-text li::before {
+.insc_graphic-text li::before {
     content: '';
     position: absolute;
     left: 0;
@@ -160,7 +160,7 @@
 }
   
 /* Form Section */
-.inscription-form {
+.insc_form {
     flex: 1;
     padding: 40px;
     display: flex;
@@ -171,8 +171,7 @@
     background: #ffffff;
 }
 
-
-.inscription-form h2 {
+.insc_form h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #6a5acd;
@@ -187,11 +186,11 @@
     gap: 10px;
 }
 
-.inscription-form h2 span {
+.insc_form h2 span {
     font-size: 1.5rem;
 }
 
-.inscription-form h2::after {
+.insc_form h2::after {
     content: '';
     position: absolute;
     bottom: -8px;
@@ -204,7 +203,7 @@
 }
 
 /* User Type Toggle */
-.user-type-toggle {
+.insc_user-type-toggle {
     display: flex;
     justify-content: center;
     margin: 0 auto 25px;
@@ -218,7 +217,7 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.toggle-option {
+.insc_toggle-option {
     flex: 1;
     padding: 10px 16px;
     border-radius: 30px;
@@ -234,22 +233,22 @@
     overflow: hidden;
 }
 
-.toggle-option.active {
+.insc_toggle-option.insc_active {
     background: linear-gradient(135deg, #6a5acd, #5d4ec7);
     color: white;
     box-shadow: 0 4px 8px rgba(106, 90, 205, 0.2);
 }
 
-.toggle-option:focus {
+.insc_toggle-option:focus {
     outline: none;
 }
 
-.toggle-option:hover:not(.active) {
+.insc_toggle-option:hover:not(.insc_active) {
     background: rgba(240, 240, 250, 0.9);
     color: #555;
 }
 
-.toggle-option::before {
+.insc_toggle-option::before {
     content: '';
     position: absolute;
     top: 0;
@@ -262,12 +261,12 @@
     pointer-events: none;
 }
 
-.toggle-option:hover::before {
+.insc_toggle-option:hover::before {
     opacity: 1;
 }
 
 /* Form Progress */
-.form-progress {
+.insc_form-progress {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -276,7 +275,7 @@
     z-index: 2;
 }
 
-.progress-step {
+.insc_progress-step {
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -291,13 +290,13 @@
     transition: all 0.3s ease;
 }
 
-.progress-step.active {
+.insc_progress-step.insc_active {
     background-color: #6a5acd;
     color: white;
     box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.2);
 }
 
-.progress-line {
+.insc_progress-line {
     height: 3px;
     width: 80px;
     background-color: #e0e0e0;
@@ -306,7 +305,7 @@
     z-index: 1;
 }
 
-.progress-line::before {
+.insc_progress-line::before {
     content: '';
     position: absolute;
     top: 0;
@@ -317,11 +316,11 @@
     transition: width 0.3s ease;
 }
 
-.progress-step:nth-child(3).active ~ .progress-line::before {
+.insc_progress-step:nth-child(3).insc_active ~ .insc_progress-line::before {
     width: 100%;
 }
 
-.section-subtitle {
+.insc_section-subtitle {
     margin-bottom: 20px;
     color: #555;
     font-size: 1.1rem;
@@ -340,27 +339,29 @@ form {
     height: 100%;
 }
 
-.form-section {
-    width: 100%;
+.insc_form-section {
+    width: 230%;
     min-height: 340px;
     display: flex;
     flex-direction: column;
 }
 
-.form-fields {
+.insc_form-fields {
     display: flex;
     flex-direction: column;
     gap: 22px;
     margin-bottom: 25px;
 }
 
-.input-group {
+.insc_input-group {
     position: relative;
     display: flex;
     flex-direction: column;
+    width: 80%;
+    margin-left: 8%;
 }
 
-.field-label {
+.insc_field-label {
     display: block;
     margin-bottom: 8px;
     font-size: 14px;
@@ -368,13 +369,13 @@ form {
     font-weight: 500;
 }
 
-.input-with-icon {
+.insc_input-with-icon {
     position: relative;
     display: flex;
     align-items: center;
 }
 
-.field-icon {
+.insc_field-icon {
     position: absolute;
     left: 12px;
     z-index: 1;
@@ -451,12 +452,12 @@ input:focus, select:focus {
     background-color: #ffffff;
 }
 
-input.error-input, select.error-input {
+.insc_error-input {
     border-color: #ff4d4f;
     background-color: rgba(255, 77, 79, 0.03);
 }
 
-input.error-input:focus, select.error-input:focus {
+.insc_error-input:focus {
     box-shadow: 0 0 0 3px rgba(255, 77, 79, 0.1);
 }
 
@@ -465,7 +466,7 @@ input::placeholder, select::placeholder {
     font-weight: 400;
 }
 
-.error-message {
+.insc_error-message {
     color: #ff4d4f;
     font-size: 12px;
     margin-top: 5px;
@@ -473,12 +474,12 @@ input::placeholder, select::placeholder {
     font-weight: 500;
 }
   
-.password-field {
+.insc_password-field {
     position: relative;
     width: 100%;
 }
   
-.password-toggle {
+.insc_password-toggle {
     position: absolute;
     right: 15px;
     top: 50%;
@@ -497,16 +498,16 @@ input::placeholder, select::placeholder {
     z-index: 5;
 }
 
-.password-toggle:hover {
+.insc_password-toggle:hover {
     opacity: 1;
 }
 
 /* Checkbox styling */
-.terms-checkbox {
+.insc_terms-checkbox {
     margin-top: 5px;
 }
 
-.checkbox-container {
+.insc_checkbox-container {
     display: flex;
     position: relative;
     padding-left: 30px;
@@ -516,7 +517,7 @@ input::placeholder, select::placeholder {
     align-items: center;
 }
 
-.checkbox-container input {
+.insc_checkbox-container input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -524,7 +525,7 @@ input::placeholder, select::placeholder {
     width: 0;
 }
 
-.checkmark {
+.insc_checkmark {
     position: absolute;
     top: 0;
     left: 0;
@@ -536,26 +537,26 @@ input::placeholder, select::placeholder {
     transition: all 0.2s ease;
 }
 
-.checkbox-container:hover input ~ .checkmark {
+.insc_checkbox-container:hover input ~ .insc_checkmark {
     background-color: #f0f0f0;
 }
 
-.checkbox-container input:checked ~ .checkmark {
+.insc_checkbox-container input:checked ~ .insc_checkmark {
     background-color: #6a5acd;
     border-color: #6a5acd;
 }
 
-.checkmark:after {
+.insc_checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
 
-.checkbox-container input:checked ~ .checkmark:after {
+.insc_checkbox-container input:checked ~ .insc_checkmark:after {
     display: block;
 }
 
-.checkbox-container .checkmark:after {
+.insc_checkbox-container .insc_checkmark:after {
     left: 7px;
     top: 3px;
     width: 5px;
@@ -565,20 +566,20 @@ input::placeholder, select::placeholder {
     transform: rotate(45deg);
 }
 
-.checkbox-label {
+.insc_checkbox-label {
     margin-left: 10px;
     color: #555;
 }
 
 /* Form Actions */
-.form-actions {
+.insc_form-actions {
     display: flex;
     justify-content: space-between;
     gap: 10px;
     margin-top: 10px;
 }
 
-.next-button, .back-button, .submit-button {
+.insc_next-button, .insc_back-button, .insc_submit-button {
     padding: 14px 20px;
     border: none;
     border-radius: 8px;
@@ -593,32 +594,32 @@ input::placeholder, select::placeholder {
     justify-content: center;
 }
 
-.next-button {
+.insc_next-button {
     background: linear-gradient(135deg, #6a5acd, #5d4ec7);
     color: white;
     margin-left: auto;
     box-shadow: 0 5px 15px rgba(106, 90, 205, 0.3);
 }
 
-.next-button:hover {
+.insc_next-button:hover {
     background: linear-gradient(135deg, #5d4ec7, #483d8b);
     box-shadow: 0 8px 20px rgba(106, 90, 205, 0.4);
     transform: translateY(-2px);
 }
 
-.back-button {
+.insc_back-button {
     background: #f0f0f0;
     color: #555;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-.back-button:hover {
+.insc_back-button:hover {
     background: #e8e8e8;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
 }
 
-.submit-button {
+.insc_submit-button {
     flex: 1;
     padding: 16px;
     background: linear-gradient(135deg, #6a5acd, #483d8b);
@@ -628,18 +629,18 @@ input::placeholder, select::placeholder {
     overflow: hidden;
 }
   
-.submit-button:hover {
+.insc_submit-button:hover {
     background: linear-gradient(135deg, #5d4ec7, #403687);
     box-shadow: 0 10px 20px rgba(106, 90, 205, 0.4);
     transform: translateY(-2px);
 }
 
-.next-button:active, .back-button:active, .submit-button:active {
+.insc_next-button:active, .insc_back-button:active, .insc_submit-button:active {
     transform: translateY(1px);
     box-shadow: 0 4px 8px rgba(106, 90, 205, 0.3);
 }
 
-.submit-button::after {
+.insc_submit-button::after {
     content: '';
     position: absolute;
     top: -50%;
@@ -653,11 +654,11 @@ input::placeholder, select::placeholder {
     pointer-events: none;
 }
 
-.submit-button:hover::after {
+.insc_submit-button:hover::after {
     opacity: 1;
 }
 
-.line1 {
+.insc_line1 {
     width: 60px;
     height: 3px;
     background: linear-gradient(to right, rgba(255, 255, 255, 0.3), #ffffff, rgba(255, 255, 255, 0.3));
@@ -665,7 +666,7 @@ input::placeholder, select::placeholder {
 }
 
 /* Fitness-themed elements */
-.fitness-icon {
+.insc_fitness-icon {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -675,7 +676,7 @@ input::placeholder, select::placeholder {
 }
 
 /* Success message styling */
-.success-message {
+.insc_success-message {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -687,7 +688,7 @@ input::placeholder, select::placeholder {
     border-radius: 8px;
 }
 
-.success-icon {
+.insc_success-icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -703,7 +704,7 @@ input::placeholder, select::placeholder {
     overflow: hidden;
 }
 
-.success-icon::after {
+.insc_success-icon::after {
     content: '';
     position: absolute;
     top: -10px;
@@ -714,7 +715,7 @@ input::placeholder, select::placeholder {
     border-radius: 50%;
 }
 
-.success-message h3 {
+.insc_success-message h3 {
     color: #6a5acd;
     font-size: 24px;
     font-weight: 700;
@@ -723,67 +724,67 @@ input::placeholder, select::placeholder {
     letter-spacing: 0.5px;
 }
 
-.success-message p {
+.insc_success-message p {
     color: #666;
     font-size: 16px;
     max-width: 80%;
 }
 
 @media screen and (max-width: 900px) {
-    .section-title {
+    .insc_section-title {
         font-size: 2rem;
     }
     
-    .inscription-container {
+    .insc_container {
         width: 95%;
     }
     
-    .inscription-form {
+    .insc_form {
         padding: 30px;
     }
 
-    .user-type-toggle {
+    .insc_user-type-toggle {
         width: 220px;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .inscription-container {
+    .insc_container {
         flex-direction: column;
         max-width: 500px;
     }
   
-    .info-graphic {
+    .insc_info-graphic {
         display: none;
     }
   
-    .inscription-form {
+    .insc_form {
         padding: 30px 25px;
     }
     
-    .section-header {
+    .insc_section-header {
         flex-direction: column;
         gap: 10px;
     }
     
-    .line1 {
+    .insc_line1 {
         width: 40px;
     }
 
-    .toggle-option {
+    .insc_toggle-option {
         padding: 8px 12px;
         font-size: 13px;
     }
 }
   
 /* Gender selection styling */
-.gender-selection {
+.insc_gender-selection {
   display: flex;
   width: 100%;
   gap: 10px;
 }
 
-.gender-option {
+.insc_gender-option {
   flex: 1;
   display: flex;
   align-items: center;
@@ -795,18 +796,18 @@ input::placeholder, select::placeholder {
   background-color: #f9f9f9;
 }
 
-.gender-option:hover {
+.insc_gender-option:hover {
   border-color: #6a5acd;
   background-color: #f5f3ff;
 }
 
-.gender-option.selected {
+.insc_gender-option.insc_selected {
   border-color: #6a5acd;
   background-color: #f0ecff;
   box-shadow: 0 2px 8px rgba(106, 90, 205, 0.2);
 }
 
-.gender-option input {
+.insc_gender-option input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -814,18 +815,98 @@ input::placeholder, select::placeholder {
   width: 0;
 }
 
-.gender-icon {
+.insc_gender-icon {
   font-size: 20px;
   margin-right: 10px;
   color: #6a5acd;
 }
 
-.gender-text {
+.insc_gender-text {
   font-weight: 500;
   color: #333;
 }
 
-.gender-option.selected .gender-text {
+.insc_gender-option.insc_selected .insc_gender-text {
   color: #6a5acd;
+}
+
+/* File upload styling */
+.insc_file-upload {
+  position: relative;
+  width: 100%;
+}
+
+.insc_file-upload-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.insc_file-upload-label {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  background: #f5f3ff;
+  border: 2px dashed #6a5acd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.insc_file-upload-label:hover {
+  background: #f0ecff;
+  border-color: #5d4ec7;
+}
+
+.insc_file-upload-icon {
+  margin-right: 10px;
+  color: #6a5acd;
+}
+
+.insc_file-upload-text {
+  color: #555;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.insc_file-upload-preview {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.insc_file-upload-preview img {
+  max-width: 50px;
+  max-height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.insc_file-upload-preview .insc_file-name {
+  font-size: 13px;
+  color: #666;
+  flex: 1;
+}
+
+.insc_file-upload-preview .insc_remove-file {
+  color: #ff4d4f;
+  cursor: pointer;
+  padding: 5px;
+  border: none;
+  background: none;
+  font-size: 16px;
+}
+
+.insc_file-upload-preview .insc_remove-file:hover {
+  color: #ff7875;
 }
   

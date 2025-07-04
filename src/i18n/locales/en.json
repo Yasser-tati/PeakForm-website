@@ -1,0 +1,238 @@
+{
+  "common": {
+    "welcome": "Welcome to My Website",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "settings": "Settings",
+    "language": "Language"
+  },
+  "navigation": {
+    "about": "ABOUT",
+    "opportunities": "OPPORTUNITIES",
+    "ourApp": "OUR APP",
+    "testimonials": "TESTIMONIALS"
+  },
+  "buttons": {
+    "download": "Download",
+    "register": "Register"
+  },
+  "popup": {
+    "downloadTitle": "Download PeakForm",
+    "scanQR": "Scan the QR code to download the app",
+    "scanToDownload": "Scan to download",
+    "or": "or",
+    "downloadGoogle": "Google Play",
+    "downloadApple": "App Store"
+  },
+  "aboutUs": {
+    "mobileApp": "Mobile App",
+    "slogan": "Shape your dream body!",
+    "downloadApp": "Download the app",
+    "features": {
+      "personalized": {
+        "title": "Personalized Programs",
+        "description": "Workouts tailored to your goals"
+      },
+      "health": {
+        "title": "Health Tracking",
+        "description": "Measure your daily progress"
+      },
+      "analytics": {
+        "title": "Detailed Analytics",
+        "description": "Optimize your performance"
+      }
+    }
+  },
+  "opportunite": {
+    "title": "Challenge Your Limits",
+    "subtitle": "to get the best results",
+    "goals": {
+      "intensive": {
+        "title": "Intensive Training",
+        "description": "Ideal for those who want to push their limits and improve their physical endurance while strengthening their body."
+      },
+      "strength": {
+        "title": "Strength Gain",
+        "description": "A program designed to increase your muscular power and help you lift heavier weights."
+      },
+      "sculpting": {
+        "title": "Body Sculpting",
+        "description": "For those who want to refine their silhouette by developing toned and well-defined muscles."
+      },
+      "conditioning": {
+        "title": "Physical Conditioning",
+        "description": "A complete workout to improve your general fitness and strengthen your muscles in a balanced way."
+      },
+      "muscular": {
+        "title": "Muscle Development",
+        "description": "To maximize muscle growth while maintaining a low body fat percentage."
+      },
+      "nutrition": {
+        "title": "Nutrition",
+        "description": "Combine a muscle strengthening program with a suitable nutritional plan to optimize your gains and accelerate your recovery."
+      },
+      "toning": {
+        "title": "Muscle Toning",
+        "description": "Perfect for firming muscles and getting a more sculpted body without adding too much volume."
+      },
+      "endurance": {
+        "title": "Endurance and Resistance",
+        "description": "Improve your muscular endurance to last longer and recover faster."
+      }
+    }
+  },
+  "screenshots": {
+    "title": "OUR APP",
+    "subtitle": "Discover the intuitive interface of our app",
+    "previous": "Previous image",
+    "next": "Next image",
+    "close": "Close preview",
+    "altText": "Screenshot {{number}}",
+    "goToImage": "Go to image {{number}}"
+  },
+  "avis": {
+    "title": "Testimonials",
+    "showMore": "Show more testimonials",
+    "featured": {
+      "text": "Very satisfied with the app! It allows me to organize my sessions and give instant feedback to my clients. Progress tracking is precise and motivating for them, it's an excellent tool for my practice."
+    },
+    "reviews": {
+      "elodie": "The app is great! It's easy to use and the programs are very well detailed. I particularly appreciate being able to track my progress over time and receive motivating notifications.",
+      "antoine": "Great experience with this app! It allows me to stay motivated and follow my sessions in a structured way. Regular reminders are very useful to never miss a session.",
+      "sarah": "The app is very well designed and intuitive. It allows me to easily track my clients' progress and adapt their workouts in real time. I love the simple and clear interface.",
+      "lucas": "The app is well designed, with exercises adapted to my level. I particularly appreciate the functionality to ask questions to my coach directly through the app.",
+      "isabelle": "Practical app. I love being able to see my results, and the interface is very smooth. It's an excellent way to stay engaged in my workouts, especially with my coach's advice."
+    }
+  },
+  "inscription": {
+    "title": "REGISTER",
+    "subtitle": "Join our fitness community and transform your body",
+    "steps": {
+      "account": "Account Information",
+      "userInfo": "Personal Information",
+      "coachInfo": "Coach Information"
+    },
+    "userType": {
+      "client": "CLIENT",
+      "coach": "COACH"
+    },
+    "fields": {
+      "name": "Full Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "dob": "Date of Birth",
+      "gender": "Gender",
+      "certificate": "Certification Number",
+      "coachId": "Coach ID (optional)"
+    },
+    "placeholders": {
+      "name": "Enter your name",
+      "email": "Enter your email",
+      "password": "Create a password",
+      "confirmPassword": "Confirm your password",
+      "certificate": "Enter your certification number",
+      "coachId": "If you have a coach, enter their ID"
+    },
+    "gender": {
+      "male": "Male",
+      "female": "Female",
+      "other": "Other"
+    },
+    "buttons": {
+      "next": "Next",
+      "back": "Back",
+      "register": "Register"
+    },
+    "terms": "I accept the terms of use and privacy policy",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "success": {
+      "title": "Registration successful!",
+      "verified": "Your account has been successfully created. You can now log in.",
+      "checkEmail": "Please check your email to activate your account."
+    },
+    "verification": {
+      "title": "Verify your email",
+      "sent": "A verification email has been sent to",
+      "check": "I've verified my email"
+    },
+    "errors": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email format",
+      "dobRequired": "Date of birth is required",
+      "ageLimit": "You must be at least 18 years old",
+      "passwordRequired": "Password is required",
+      "passwordLength": "Password must be at least 6 characters",
+      "confirmPasswordRequired": "Please confirm your password",
+      "passwordMatch": "Passwords do not match",
+      "genderRequired": "Please select your gender",
+      "certificateRequired": "Certificate number is required",
+      "coachIdRequired": "Coach ID is required",
+      "termsRequired": "You must accept the terms"
+    },
+    "apiErrors": {
+      "emailExists": "This email is already in use. Please login or use a different email.",
+      "connectionError": "Connection issue with Supabase. Check your internet connection and .env settings.",
+      "useDiagnostic": "Use the diagnostic tool for more details.",
+      "specificError": "Connection error: {0}. {1}",
+      "generic": "An error occurred during registration. Please try again later.",
+      "unexpected": "An unexpected error occurred. Please try again later or contact support.",
+      "verificationError": "Error checking verification: Please try again later",
+      "notVerified": "Your email has not been verified yet. Please check your inbox and click the confirmation link."
+    }
+  },
+  "footer": {
+    "tagline": "Your personal fitness partner",
+    "downloadApp": "Download the app",
+    "securePayment": "Secure payment methods",
+    "appTitle": "The application",
+    "about": "About",
+    "opportunities": "Opportunities",
+    "screenshots": "Screenshots",
+    "reviews": "Customer reviews",
+    "support": "Support",
+    "helpCenter": "Help center",
+    "contactUs": "Contact us",
+    "faq": "FAQ",
+    "userGuide": "User guide",
+    "legal": "Legal",
+    "terms": "Terms of use",
+    "privacy": "Privacy policy",
+    "followUs": "Follow us",
+    "copyright": "© 2025 PeakForm. All rights reserved."
+  },
+  "unauthorized": {
+    "title": "Unauthorized Access",
+    "message": "You do not have the necessary permissions to access this page.",
+    "backHome": "Back to Home"
+  },
+  "authError": {
+    "title": "Authentication Error",
+    "runDiagnostics": "Run Connection Diagnostics",
+    "connectionSuccess": "✅ Connection Successful",
+    "problemDetected": "❌ Problem Detected",
+    "error": "Error",
+    "solution": "Solution",
+    "checkCredentials": "Please verify your Supabase credentials in your .env file or contact the site administrator.",
+    "backHome": "Back to Home"
+  },
+  "home": {
+    "title": "Welcome to our platform",
+    "description": "This is a sample React application with i18n support",
+    "getStarted": "Get Started"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Learn more about our team and our mission"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Submit"
+  }
+} 

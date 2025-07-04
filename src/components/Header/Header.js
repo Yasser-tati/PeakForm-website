@@ -3,6 +3,7 @@ import './Header.css';
 import logo from './logo-Photoroom.png';
 import qrCode from './qr-code.png';
 import { FaBars, FaTimes, FaDownload, FaUserPlus } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 import iphone from './telbg.jpg';
 import cadre from './cadre.webp';
 
@@ -11,6 +12,11 @@ const Header = () => {
   const [scrolling, setScrolling] = useState(false);
   const [popupOpen, setPopupOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const { i18n, t } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,7 +71,7 @@ const Header = () => {
                   className={activeSection === 'aboutus' ? 'active' : ''}
                   onClick={(e) => { e.preventDefault(); scrollToSection('aboutus'); }}
                 >
-                  À PROPOS
+                  {t('navigation.about', 'À PROPOS')}
                 </a>
               </li>
               <li>
@@ -74,7 +80,7 @@ const Header = () => {
                   className={activeSection === 'oporunite' ? 'active' : ''}
                   onClick={(e) => { e.preventDefault(); scrollToSection('oporunite'); }}
                 >
-                  OPPORTUNITÉS
+                  {t('navigation.opportunities', 'OPPORTUNITÉS')}
                 </a>
               </li>
               <li>
@@ -83,7 +89,7 @@ const Header = () => {
                   className={activeSection === 'screen' ? 'active' : ''}
                   onClick={(e) => { e.preventDefault(); scrollToSection('screen'); }}
                 >
-                  NOTRE APPLICATION
+                  {t('navigation.ourApp', 'NOTRE APPLICATION')}
                 </a>
               </li>
               <li>
@@ -92,15 +98,30 @@ const Header = () => {
                   className={activeSection === 'avis' ? 'active' : ''}
                   onClick={(e) => { e.preventDefault(); scrollToSection('avis'); }}
                 >
-                  TÉMOIGNAGES
+                  {t('navigation.testimonials', 'TÉMOIGNAGES')}
                 </a>
+              </li>
+              <li className="language-selector">
+                <button 
+                  onClick={() => changeLanguage('en')} 
+                  className={i18n.language === 'en' ? 'lang-active' : ''}
+                >
+                  EN
+                </button>
+                <span>|</span>
+                <button 
+                  onClick={() => changeLanguage('fr')} 
+                  className={i18n.language === 'fr' ? 'lang-active' : ''}
+                >
+                  FR
+                </button>
               </li>
               <li className="main-button">
                 <a className='button-download'
                   href="#download" 
                   onClick={(e) => { e.preventDefault(); setPopupOpen(true); }}
                 >
-                  <FaDownload style={{ marginRight: '3px', fontSize: '11px' }} /> Télécharger
+                  <FaDownload style={{ marginRight: '3px', fontSize: '11px' }} /> {t('buttons.download', 'Télécharger')}
                 </a>
               </li>
               <li className="main-button">
@@ -109,7 +130,7 @@ const Header = () => {
                   className={`${activeSection === 'inscription' ? 'active' : ''} button-download`}
                   onClick={(e) => { e.preventDefault(); scrollToSection('inscription'); }}
                 >
-                  <FaUserPlus style={{ marginRight: '3px', fontSize: '11px' }} /> S'inscrire
+                  <FaUserPlus style={{ marginRight: '3px', fontSize: '11px' }} /> {t('buttons.register', 'S\'inscrire')}
                 </a>
               </li>
             </ul>
@@ -138,17 +159,17 @@ const Header = () => {
             <div className="popup-body">
               <div className="popup-left">
                 <div className="iphone-container">
-                  <img src={cadre} alt="iPhone Frame" className="iphone-frame" />
-                  <img src={iphone} alt="App Screenshot" className="iphone-screen" />
+                  <img src={cadre} alt="iPhone Frame" className="iphone-frame1" />
+                  <img src={iphone} alt="App Screenshot" className="iphone-screen1" />
                 </div>
               </div>
               <div className="popup-right">
-                <h3>Téléchargez PeakForm</h3>
-                <p>Scannez le code QR pour télécharger l'application</p>
+                <h3>{t('popup.downloadTitle', 'Téléchargez PeakForm')}</h3>
+                <p>{t('popup.scanQR', 'Scannez le code QR pour télécharger l\'application')}</p>
                 <img src={qrCode} alt="QR Code" className="qr-image" />
                 <div className="separator">
                   <div className="line1"></div>
-                  <p>ou</p>
+                  <p>{t('popup.or', 'ou')}</p>
                   <div className="line1"></div>
                 </div>
                 <a 
@@ -157,7 +178,7 @@ const Header = () => {
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  Télécharger sur Google Play
+                  {t('popup.downloadGoogle', 'Télécharger sur Google Play')}
                 </a>
               </div>
             </div>

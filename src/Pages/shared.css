@@ -1,0 +1,506 @@
+/* Add this at the top of the file */
+body {
+  background: linear-gradient(135deg, #2d1f3f 0%, #1a1a2e 100%);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+body.page-transition {
+  background: linear-gradient(135deg, #2d1f3f 0%, #1a1a2e 100%);
+}
+
+/* Modern color scheme */
+:root {
+  --primary-color: #6c5ce7;
+  --secondary-color: #a29bfe;
+  --accent-color: #fd79a8;
+  --text-color: #2d3436;
+  --light-text: #636e72;
+  --background-color: #ffffff;
+  --card-background: #f8f9fa;
+  --border-color: #dfe6e9;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Page container */
+.condition-page,
+.politique-page,
+.contact-page,
+.faq-page,
+.guide-page,
+.aide-page {
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Improved fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.condition-page,
+.politique-page,
+.contact-page,
+.faq-page,
+.guide-page,
+.aide-page {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.container1 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Content styling */
+.content-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #9d6ff5, #592dd1);
+  border-radius: 2px;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-title1 {
+  font-size: 1.5rem;
+  color: #9d6ff5;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.text {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* Form styling */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #9d6ff5;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #9d6ff5;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Button styling */
+.submit-button {
+  background: linear-gradient(90deg, #9d6ff5, #592dd1);
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(89, 45, 209, 0.3);
+}
+
+/* Last updated text */
+.last-updated {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .condition-page,
+  .politique-page,
+  .contact-page,
+  .faq-page,
+  .guide-page,
+  .aide-page {
+    padding: 1rem;
+  }
+
+  .container1 {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .section {
+    padding: 1rem;
+  }
+}
+
+/* Background pattern */
+.condition-page::before,
+.politique-page::before,
+.contact-page::before,
+.faq-page::before,
+.guide-page::before,
+.aide-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239d6ff5' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.1;
+  z-index: 0;
+}
+
+/* Form styles for contact page */
+.contact-form {
+  width: 100%;
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+  .title {
+    font-size: 24px;
+  }
+  
+  .section-title1 {
+    font-size: 18px;
+  }
+
+  .text {
+    padding-left: 10px;
+  }
+}
+
+.condition-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(135deg, #2d1f3f 0%, #1a1a2e 100%);
+  padding: 40px 20px;
+  color: #fff;
+  min-height: 100vh;
+  position: relative;
+}
+
+.container1 {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.container1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.content-container {
+  padding: 50px 60px;
+  position: relative;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #fff;
+  text-align: center;
+  padding-bottom: 25px;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #9d6ff5, #592dd1);
+  border-radius: 2px;
+}
+
+.section {
+  margin-bottom: 35px;
+  padding: 25px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.section-title1 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #9d6ff5;
+  position: relative;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.section-title1:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #9d6ff5;
+  border-radius: 2px;
+}
+
+.text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+.last-updated {
+  margin-top: 50px;
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  padding-top: 25px;
+  position: relative;
+}
+
+.last-updated::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #9d6ff5;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #9d6ff5;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.submit-button {
+  background: linear-gradient(90deg, #9d6ff5, #592dd1);
+  color: #fff;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(89, 45, 209, 0.3);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container1 {
+    width: 95%;
+    margin: 0 auto;
+  }
+  
+  .content-container {
+    padding: 30px 25px;
+  }
+  
+  .title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  .section-title1 {
+    font-size: 20px;
+  }
+  
+  .text {
+    font-size: 15px;
+    padding-left: 15px;
+  }
+
+  .section:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-container {
+    padding: 25px 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+  }
+  
+  .section-title1 {
+    font-size: 18px;
+  }
+
+  .text {
+    padding-left: 10px;
+  }
+}
+
+/* Improved transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.condition-page,
+.politique-page,
+.contact-page,
+.faq-page,
+.guide-page,
+.aide-page {
+  animation: fadeIn 0.5s ease-out;
+} 

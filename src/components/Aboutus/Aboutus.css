@@ -1,31 +1,60 @@
+/* Main section */
 .about-us {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+}
+
+.about-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: none;
-    margin-top: 10%;
-}
-
-.about-content {
-    margin-top: -3%;
-    max-width: 40%;
-    text-align: left;
+    width: 90%;
+    max-width: 1400px;
+    position: relative;
+    z-index: 2;
     margin-left: 10%;
 }
 
+.about-content {
+    max-width: 40%;
+    text-align: left;
+    margin-right: 5%;
+    margin-top: 5%;
+}
+
+/* Typography */
 .small-title {
-    font-size: 25px;
+    font-size: 22px;
     font-weight: bold;
     color: white;
-    margin-bottom: 2px;
+    margin-bottom: 7px;
     line-height: 1.2;
+    letter-spacing: 0.5px;
+    position: relative;
+    display: inline-block;
+}
+
+.small-title::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #b300ff, transparent);
+    bottom: -4px;
+    left: 0;
+    border-radius: 1px;
 }
 
 .main-title {
-    font-size: 48px;
+    font-size: 52px;
     font-weight: 900;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     line-height: 1.1;
     display: flex;
     align-items: center;
@@ -34,52 +63,161 @@
 .fitness {
     color: white;
     margin-right: 20px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
 }
 
 .online {
     color: #b300ff;
     margin-left: -4%;
+    position: relative;
+    text-shadow: 0 0 20px rgba(179, 0, 255, 0.4);
 }
 
 .subtitle {
-    font-size: 25px;
+    font-size: 22px;
     color: white;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     line-height: 1.2;
+    font-weight: 500;
+    opacity: 0.95;
 }
 
-.button-container {
-    margin-top: 15px;
+/* Features */
+.features-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 35px;
 }
 
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, background 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(179, 0, 255, 0.3);
+}
+
+.feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #b300ff, #9c27b0);
+    color: white;
+    font-size: 20px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(179, 0, 255, 0.3);
+}
+
+.feature-text {
+    flex: 1;
+}
+
+.feature-text h3 {
+    color: white;
+    font-size: 18px;
+    margin: 0 0 5px;
+    font-weight: 600;
+}
+
+.feature-text p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Download button */
 .download-btn1 {
     background: linear-gradient(135deg, #b300ff, #9c27b0);
     color: white;
     border: none;
-    padding: 8px 14px;
-    border-radius: 5px;
+    padding: 14px 24px;
+    border-radius: 50px;
     cursor: pointer;
-    font-size: 23px;
-    text-transform: none;
+    font-size: 18px;
     font-weight: 600;
     transition: all 0.3s;
     letter-spacing: 0.5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 5%;
+    box-shadow: 0 4px 15px rgba(179, 0, 255, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.download-btn1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
 }
 
 .download-btn1:hover {
-    background: linear-gradient(135deg, #9c27b0, #b300ff);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(179, 0, 255, 0.4);
 }
 
+.download-btn1:hover::before {
+    transform: translateY(0);
+}
+
+.download-icon {
+    font-size: 18px;
+}
+
+/* Phone display */
 .about-image-container {
     position: relative;
-    width: 300px;
-    height: 550px;
+    width: 275px;
+    height: 500px;
     margin-right: 10%;
+    perspective: 1200px;
+    margin-top: 10%;
+}
 
+.phone-glow {
+    position: absolute;
+    width: 140%;
+    height: 120%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(179, 0, 255, 0.15) 0%, transparent 70%);
+    z-index: 0;
+    top: -10%;
+    left: -20%;
+    filter: blur(20px);
+    opacity: 0.8;
+    animation: glow 5s infinite alternate ease-in-out;
+}
+
+@keyframes glow {
+    0% {
+        opacity: 0.6;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
 }
 
 .phone-frame {
@@ -90,7 +228,10 @@
     top: 0;
     left: -50%;
     margin-top: -10%;
-    z-index: 2; /* Higher index to keep it on top */
+    z-index: 2;
+    transform: rotateY(-5deg);
+    transition: transform 0.5s ease;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
 }
 
 .phone-screen {
@@ -100,20 +241,28 @@
     width: 77%;
     height: 93%;
     margin-top: -12%;
-    z-index: 1; /* Lower index to place it under phone-frame */
+    z-index: 1;
+    transform: rotateY(-5deg);
+    transition: transform 0.5s ease;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(179, 0, 255, 0.2);
 }
 
+.about-image-container:hover .phone-frame,
+.about-image-container:hover .phone-screen {
+    transform: rotateY(0);
+}
 
-/* Background Video */
+/* Background Video and Overlay */
 .bgvideo {
     position: absolute;
-    top: 0%;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    opacity: 0.9;
-    z-index: -1;
+    opacity: 0.75;
+    z-index: 0;
 }
 
 #backgroundvideo {
@@ -122,226 +271,409 @@
     object-fit: cover;
 }
 
+.overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: 1;
+}
+
 /* Popup Styles */
 .popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  backdrop-filter: blur(3px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
 }
 
 .popup-content {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  width: 60%;
-  max-width: 600px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  position: relative;
+    background: rgba(255, 255, 255, 0.97);
+    padding: 40px;
+    border-radius: 20px;
+    width: 70%;
+    max-width: 800px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.popup-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(179, 0, 255, 0.05) 0%, transparent 100%);
+    pointer-events: none;
 }
 
 .close-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #555;
-  transition: color 0.3s;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    color: #555;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
 }
 
 .close-btn:hover {
-  color: #b300ff;
+    color: #b300ff;
+    background: rgba(179, 0, 255, 0.1);
+    transform: rotate(90deg);
 }
 
 /* Popup Layout */
 .popup-body {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.popup-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.popup-right {
+    flex: 1.2;
+    padding-left: 20px;
 }
 
 .popup-right h3 {
-  color: #b300ff;
-  margin-bottom: 15px;
-  font-size: 24px;
-  font-weight: 600;
+    color: #b300ff;
+    margin-bottom: 15px;
+    font-size: 28px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+.popup-right h3::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #b300ff, transparent);
+    bottom: -8px;
+    left: 0;
+    border-radius: 1px;
 }
 
 .popup-right p {
-  margin-bottom: 15px;
-  color: #555;
-  font-weight: 500;
+    margin-bottom: 25px;
+    color: #444;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 /* iPhone Frame Container */
 .iphone-container {
-  position: relative;
-  width: 200px;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 12%;
+    position: relative;
+    width: 220px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phone-spotlight {
+    position: absolute;
+    width: 180%;
+    height: 180%;
+    background: radial-gradient(ellipse at center, rgba(179, 0, 255, 0.15) 0%, transparent 70%);
+    z-index: 0;
+    top: -40%;
+    left: -40%;
 }
 
 /* iPhone Frame */
 .iphone-frame {
-  width: 160%;
-  position: absolute;
-  z-index: 2;
+    width: 160%;
+    position: absolute;
+    z-index: 2;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
 }
 
 /* App Screenshot Positioned Inside Frame */
 .iphone-screen {
-  width: 70%;
-  height: 100%;
-  position: absolute;
-  top: 0%;
-  left: 1%;
-  z-index: 1;
-  margin-left: 1%;
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 1%;
+    z-index: 1;
+    margin-left: 1%;
+    border-radius: 10px;
 }
 
 /* QR Code */
+.qr-container {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    padding: 15px;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(179, 0, 255, 0.1);
+    margin-bottom: 20px;
+}
+
 .qr-image {
-  display: block;
-  margin-top: 20px;
-  width: 160px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 5px;
-  background: white;
+    display: block;
+    width: 140px;
+    margin: 0 auto;
+    padding: 5px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.qr-instruction {
+    color: #555;
+    font-size: 14px;
+    margin: 10px 0 0;
+    font-weight: 500;
 }
 
 .separator {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin: 20px 0;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 0;
+    justify-content: center;
 }
 
 .line1 {
-  width: 50px;
-  height: 2px;
-  background-color: #b300ff;
-  border-radius: 2px;
+    width: 60px;
+    height: 2px;
+    background-color: rgba(179, 0, 255, 0.3);
+    border-radius: 2px;
 }
 
-.lien {
-  display: inline-block;
-  text-align: center;
-  margin-top: 15px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
-  text-decoration: none;
-  transition: color 0.3s;
-  padding: 8px 15px;
-  border: 1px solid #b300ff;
-  border-radius: 5px;
+.download-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
 }
 
-.lien:hover {
-  color: #b300ff;
-  background-color: rgba(179, 0, 255, 0.05);
+.store-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.apple-btn {
+    background: #000;
+    color: white;
+}
+
+.google-btn {
+    background: #b300ff;
+    color: white;
+}
+
+.store-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .about-us {
+@media (max-width: 1200px) {
+    .main-title {
+        font-size: 50px;
+    }
+    
+    .small-title, .subtitle {
+        font-size: 24px;
+    }
+    
+    .about-content {
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 992px) {
+    .about-container {
         flex-direction: column;
         text-align: center;
-        padding: 30px 5%;
     }
-
+    
     .about-content {
-        max-width: 100%;
-        order: 1; /* Text comes first */
-    }
-
-    .small-title {
-        font-size: 20px;
-    }
-
-    .main-title {
-        font-size: 32px;
+        max-width: 80%;
+        margin-right: 0;
+        margin-bottom: 50px;
+        display: flex;
         flex-direction: column;
         align-items: center;
     }
-
-    .subtitle {
-        font-size: 18px;
+    
+    .small-title::after {
+        left: 50%;
+        transform: translateX(-50%);
     }
-
-    .button-container {
-        order: 2; /* Button comes second */
-        margin-top: 15px;
-        margin-bottom: 30px;
+    
+    .main-title {
+        justify-content: center;
     }
+    
+    .features-container {
+        max-width: 450px;
+    }
+    
+    .feature-item {
+        text-align: left;
+    }
+    
+    .popup-body {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .popup-right {
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    .popup-right h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
 
+@media (max-width: 768px) {
+    .about-us {
+        padding: 60px 0;
+    }
+    
+    .about-content {
+        max-width: 90%;
+    }
+    
+    .main-title {
+        font-size: 40px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .small-title, .subtitle {
+        font-size: 20px;
+    }
+    
+    .fitness {
+        margin-right: 0;
+    }
+    
+    .online {
+        margin-left: 0;
+    }
+    
+    .feature-item {
+        padding: 12px;
+    }
+    
+    .feature-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
     .download-btn1 {
-        font-size: 12px;
-        padding: 8px 14px;
+        font-size: 16px;
+        padding: 12px 20px;
     }
-    .download-btn1:hover {
-        background: linear-gradient(135deg, #9c27b0, #b300ff);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    }
-
+    
     .about-image-container {
-        width: 200px;
-        height: 300px;
-        order: 3; /* Image is last */
-        margin-top: 20px;
-    }
-
-    .iphone-frame {
-        width: 100%;
-        left: 0;
-    }
-
-    .iphone-screen {
-        width: 90%;
-        left: 5%;
+        width: 220px;
+        height: 440px;
     }
     
     .popup-content {
         width: 90%;
-        padding: 20px;
-    }
-
-    .popup-body {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .popup-right {
-        padding-left: 0;
-        margin-top: 25px;
-        width: 100%;
-    }
-
-    .qr-image {
-        margin: 15px auto;
+        padding: 30px 20px;
     }
     
-    .separator {
-        margin-left: 0;
-        justify-content: center;
+    .download-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-us {
+        padding: 40px 0;
+    }
+    
+    .about-content {
+        max-width: 100%;
+    }
+    
+    .main-title {
+        font-size: 32px;
+    }
+    
+    .small-title, .subtitle {
+        font-size: 18px;
+    }
+    
+    .download-btn1 {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+    
+    .about-image-container {
+        width: 180px;
+        height: 360px;
+    }
+    
+    .popup-content {
+        padding: 20px 15px;
+    }
+    
+    .popup-right h3 {
+        font-size: 22px;
+    }
+    
+    .popup-right p {
+        font-size: 14px;
+    }
+    
+    .qr-image {
+        width: 120px;
     }
 }
